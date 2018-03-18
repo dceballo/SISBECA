@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','rol','cedula',
+        'name', 'email', 'password','rol','cedula','last_name',
     ];
 
     /**
@@ -31,5 +31,39 @@ class User extends Authenticatable
 
     public function admin(){
         return $this->rol==='admin';
+    }
+
+    //para la relación de 1 a 1 que tiene con la tabla coordinadores (de llegar a tener)
+
+    public function coordinador(){
+
+        return $this->hasOne('avaa\Coordinador','user_id');
+
+    }
+
+    //para la relación de 1 a 1 que tiene con la tabla mentores (de llegar a tener)
+    public function mentor(){
+
+        return $this->hasOne('avaa\Mentor','user_id');
+
+    }
+
+    //para la relación de 1 a 1 que tiene con la tabla becarios (de llegar a tener)
+    public function becario(){
+
+        return $this->hasOne('avaa\Becario','user_id');
+
+    }
+
+    public function alertas(){
+
+        return $this->hasMany('avaa\Alerta','user_id');
+
+    }
+
+    public function solicitudes(){
+
+        return $this->hasMany('avaa\Solicitud','user_id');
+
     }
 }
