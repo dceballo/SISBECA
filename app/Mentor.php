@@ -15,4 +15,12 @@ class Mentor extends Model
     {
         return $this->belongsTo('avaa\User','user_id');
     }
+
+    //Relación uno a muchos
+
+    public function becarios(){
+
+        return $this->hasMany('avaa\Becario','mentor_id');
+
+    }
 }

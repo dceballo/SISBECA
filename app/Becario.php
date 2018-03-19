@@ -28,6 +28,12 @@ class Becario extends Model
 
     }
 
+    public function mentor(){
+
+        return $this->belongsTo('avaa\Mentor','mentor_id');
+
+    }
+
     public function factLibros(){
 
         return $this->hasMany('avaa\FactLibro','becario_id');

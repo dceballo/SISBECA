@@ -17,6 +17,7 @@ class CreateBecariosTable extends Migration
             $table->primary('user_id'); //se coloca el mismo id porque la relacion uno a uno no pueden existir dos perfiles con el mismo user
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('coordinador_id');
+            $table->unsignedInteger('mentor_id');
             $table->boolean('aceptado');
             //los demás campos
             $table->timestamps();
@@ -27,6 +28,10 @@ class CreateBecariosTable extends Migration
 
             $table->foreign('coordinador_id')
                 ->references('user_id')->on('coordinadores')
+                ->onDelete('cascade');
+
+            $table->foreign('mentor_id')
+                ->references('user_id')->on('mentores')
                 ->onDelete('cascade');
 
 
