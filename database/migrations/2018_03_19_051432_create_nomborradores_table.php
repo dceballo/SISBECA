@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActividadesTable extends Migration
+class CreateNomborradoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,32 +13,29 @@ class CreateActividadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('actividades', function (Blueprint $table) {
+        Schema::create('nomborradores', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('titulo');
-            $table->string('descripcion');
-            $table->unsignedInteger('duracion_horas');
-            $table->enum('status',['programada','terminada'])->default('programada');
-            $table->timestamp('fecha_inicio')->nullable();
-            $table->timestamp('fecha_fin')->nullable();
+            $table->decimal('sueldo_base');
+            $table->string('observacion');
+            $table->unsignedInteger('mes');
+            $table->unsignedInteger('year');
+            $table->timestamp('fecha_generada')->nullable();
             $table->timestamps();
-
-            //crear una tabla que funcione como pivot porque tenemos una relación de muchos a muchos
-
         });
 
         //laravel por defecto nos recomienda que cuando se vaya a crear  una tabla pirvot esa tabla debe llevar el nombre
         //de manera singular las dos tablas que se vayan a relacionar
-        Schema::create('becarios_actividades',function(Blueprint $table){
+        Schema::create('becarios_nomborradores',function(Blueprint $table){
             $table->increments('id');
             $table->unsignedInteger('becario_id');
-            $table->unsignedInteger('actividad_id');
+            $table->unsignedInteger('nomborrador_id');
 
             $table->foreign('becario_id')->references('user_id')->on('becarios')->onDelete('cascade');
-            $table->foreign('actividad_id')->references('id')->on('actividades')->onDelete('cascade');
+            $table->foreign('nomborrador_id')->references('id')->on('nomborradores')->onDelete('cascade');
             $table->timestamps();
 
         });
+
     }
 
     /**
@@ -48,7 +45,7 @@ class CreateActividadesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('becarios_actividades');
-        Schema::dropIfExists('actividades');
+        Schema::drop('becarios_nomborradores');
+        Schema::dropIfExists('nomborradores');
     }
 }

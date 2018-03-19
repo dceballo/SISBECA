@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name')->nullable();
             $table->string('email',30)->unique();
             $table->string('password');
-            $table->enum('rol',['admin','coordinador','mentor','postulante','becario','editor','directivo'])->default('postulante');
+            $table->enum('rol',['pre-postulante','admin','coordinador','mentor','postulante','becario','editor','directivo'])->default('pre-postulante');
             $table->string('cedula',15)->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();

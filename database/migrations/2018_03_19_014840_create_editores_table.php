@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMentoresTable extends Migration
+class CreateEditoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateMentoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('mentores', function (Blueprint $table) {
+        Schema::create('editores', function (Blueprint $table) {
             $table->primary('user_id'); //se coloca el mismo id porque la relacion uno a uno no pueden existir dos perfiles con el mismo user
             $table->unsignedInteger('user_id');
-
-            $table->timestamp('fecha_nacimiento')->nullable();
-            $table->string('nivel_estudio');
-            $table->text('descripcion');
             $table->timestamps();
 
             $table->foreign('user_id')
@@ -35,6 +31,6 @@ class CreateMentoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mentores');
+        Schema::dropIfExists('editores');
     }
 }

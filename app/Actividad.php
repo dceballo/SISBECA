@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Actividad extends Model
 {
+    //
+
     protected $table='actividades';
 
     public function becarios(){
@@ -13,4 +15,9 @@ class Actividad extends Model
         return $this->belongsToMany('avaa\Becario','becarios_actividades','actividad_id','becario_id')->withTimestamps();
     }
 
+    public function editor(){
+
+        return $this->belongsTo('avaa\Editor','editor_id');
+
+    }
 }

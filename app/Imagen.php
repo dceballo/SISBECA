@@ -8,9 +8,9 @@ class Imagen extends Model
 {
     protected $table= 'imagenes';
 
-    public function becario(){
+    public function user(){
 
-        return $this->belongsTo('avaa\Becario','becario_id');
+        return $this->belongsTo('avaa\User','user_id');
 
     }
 }

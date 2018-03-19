@@ -55,6 +55,20 @@ class User extends Authenticatable
 
     }
 
+    //para la relación de 1 a 1 que tiene con la tabla editores (de llegar a tener)
+    public function editor(){
+
+        return $this->hasOne('avaa\Editor','user_id');
+
+    }
+
+
+    public function imagenes(){
+
+        return $this->hasMany('avaa\Imagen','user_id');
+
+    }
+
     public function alertas(){
 
         return $this->hasMany('avaa\Alerta','user_id');
@@ -66,4 +80,11 @@ class User extends Authenticatable
         return $this->hasMany('avaa\Solicitud','user_id');
 
     }
+
+    public function documentos(){
+
+        return $this->hasMany('avaa\Documento','user_id');
+
+    }
+
 }
