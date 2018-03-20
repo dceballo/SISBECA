@@ -99,7 +99,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   overflow-x: hidden;
-  color: #67757c;
 }
 html {
   position: relative;
@@ -5414,7 +5413,6 @@ tbody tr th {
 }
 tbody tr td {
   font-family: 'Poppins', sans-serif;
-  color: #99abb4;
 }
 tbody tr td:last-child {
   text-align: right;

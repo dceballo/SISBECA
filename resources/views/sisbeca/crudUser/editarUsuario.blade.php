@@ -33,34 +33,16 @@
                                     <option value='directivo'>Directivo</option>
                                 @endif
 
-                                @if($user->rol=='edit')
+                                @if($user->rol=='editor')
                                     <option selected value='edit'>Coordinador Educativo</option>
                                 @else
-                                    <option value='edit'>Coordinador Educativo</option>
+                                    <option value='editor'>Coordinador Educativo</option>
                                 @endif
 
                                 @if($user->rol=='coordinador')
                                     <option selected value='coordinador'>Coordinador General</option>
                                 @else
                                     <option value='coordinador'>Coordinador General</option>
-                                @endif
-
-                                @if($user->rol=='becario')
-                                    <option selected value='becario'>Becario</option>
-                                @else
-                                    <option value='becario'>Becario</option>
-                                @endif
-
-                                @if($user->rol=='mentor')
-                                    <option selected value='mentor'>Mentor</option>
-                                @else
-                                    <option value='mentor'>Mentor</option>
-                                @endif
-
-                                @if($user->rol=='postulante')
-                                    <option selected value='postulante'>Postulante</option>
-                                @else
-                                    <option value='postulante'>Postulante</option>
                                 @endif
 
 

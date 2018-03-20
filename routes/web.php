@@ -67,6 +67,17 @@ Route::group(["prefix"=>"sisbeca",'middleware'=>'auth'],function ()
     ]);
      });
 
+    //Estas Rutas solo seran accedidas por el Editor (editor es un middleware
+    // creado recordar registrar el middleware creado por el programador en la carpeta Kernel
+    Route::group(['middleware'=>'editor'],function ()
+    {
+        Route::Resource('mantenimientoNoticia', 'MantenimientoNoticiaController');
+        Route::get('mantenimientoNoticia/{id}/destroy', [
+            'uses' => 'MantenimientoNoticiaController@destroy',
+            'as' => 'mantenimientoNoticia.destroy'
+        ]);
+    });
+
     /*
     Route::get('/',[
         'uses'=> 'HomeController@index',

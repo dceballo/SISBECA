@@ -26,11 +26,8 @@
                             <select class="form-control " required id="rol" name="rol">
                                 <option value=''>Seleccione</option>
                                 <option value='directivo'>Directivo</option>
-                                <option value='edit'>Coordinador Educativo</option>
+                                <option value='editor'>Coordinador Educativo</option>
                                 <option value='coordinador'>Coordinador General</option>
-                                <option value='becario'>Becario</option>
-                                <option value='mentor'>Mentor</option>
-                                <option value='postulante'>Postulante</option>
                             </select>
                         </div>
 

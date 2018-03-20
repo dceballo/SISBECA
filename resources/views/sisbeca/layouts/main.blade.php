@@ -76,6 +76,7 @@
    @yield('formvalidationjs')
    @yield('nestablejs')
    @yield('alertjs')
+   @yield('personaljs')
 
 
     

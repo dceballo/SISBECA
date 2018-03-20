@@ -10,9 +10,9 @@
                 {{--Inicio de Vistas del Administrador--}}
                 @if(Auth::user()->admin())
                 <li class="nav-label">Inicio(Vta Administrador)</li>
-                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Mantenimiento</span></a>
+                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Usuarios</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{asset(route('mantenimientoUser.index'))}}">Usuarios</a></li>
+                        <li><a href="{{asset(route('mantenimientoUser.index'))}}">Mantenimiento</a></li>
                     </ul>
                 </li>
                 @endif
@@ -40,10 +40,11 @@
                 {{--Fin de Vistas del Postulante--}}
 
                 {{--Inicio de Vistas del Coordinador Educativo es decir el Editor--}}
+                @if(Auth::user()->rol==='editor')
                 <li class="nav-label">Inicio(Vta Editor)</li>
-                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Noticias</span></a>
+                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-list-alt"></i><span class="hide-menu">Noticias</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">Mantenimiento</a></li>
+                        <li><a href="{{route('mantenimientoNoticia.create')}}">Mantenimiento</a></li>
                     </ul>
                 </li>
 
@@ -60,6 +61,7 @@
                         <li><a href="#">ChatClubs</a></li>
                     </ul>
                 </li>
+                @endif
                 {{--Fin de Vistas del Coordinador Educativo es decir el Editor--}}
 
                 {{--Inicio de Vistas del Directivo Unicamente--}}

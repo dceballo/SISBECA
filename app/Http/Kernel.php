@@ -58,5 +58,6 @@ class Kernel extends HttpKernel
         'guest' => \avaa\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin' => \avaa\Http\Middleware\Admin::class,
+        'editor' => \avaa\Http\Middleware\Editor::class,
     ];
 }

@@ -3,12 +3,12 @@
 @section('subtitle','Lista de Usuarios')
 @section('content')
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 table-responsive">
             <div class="card">
                 <div class="card-body"> <a href="{{ route('mantenimientoUser.create') }}" class="btn btn-info">Registrar Nuevo Usuario</a> </div>
             <br/>
 
-                <table class="table table-striped">
+                <table class="table table-hover">
                     <thead>
                     <th>Nombre</th>
                     <th>E-mail</th>
@@ -48,13 +48,14 @@
 
                 </table>
 
+<hr/>
+                <div class="text-center">
+                    {!! $users->render() !!} {{--Esto por lo del paginado--}}
+                </div>
+        </div>
+        </div>
+    </div>
 
-        </div>
-        </div>
-    </div>
-    <div class="text-center">
-        {!! $users->render() !!} {{--Esto por lo del paginado--}}
-    </div>
 
 @endsection
           
