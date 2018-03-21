@@ -62,10 +62,11 @@
                 <!-- End PAge Content -->
             </div>
             <!-- End Container fluid  -->
-            <!-- footer -->
-            <footer class="footer"> © 2018 Todos los derechos reservados. Diseñado por Developers UC-Facyt</footer>
-            <!-- End footer -->
+
         </div>
+        <!-- footer -->
+        <footer class="footer"> © 2018 Todos los derechos reservados. Diseñado por Developers UC-Facyt</footer>
+        <!-- End footer -->
         <!-- End Page wrapper  -->
     </div>
     <!-- End Wrapper -->

@@ -1,13 +1,15 @@
 @extends('sisbeca.layouts.main')
 @section('title','Inicio')
-@section('subtitle','Lista de Usuarios')
+@section('subtitle','Mantenimiento de Noticias')
 @section('content')
     <div class="row">
-        <div class="col-12 table-responsive">
-            <div class="card">
-                <div class="card-body"> <a href="{{ route('mantenimientoUser.create') }}" class="btn btn-info">Registrar Nuevo Usuario</a> </div>
-            <br/>
+        <div class="col-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><span class="fa fa-user fa-fw"></span> Usuarios</div>
+                <br/>
+                <div class="col-md-6"> <a href="{{ route('mantenimientoUser.create') }}" class="btn btn-info">Registrar Nuevo Usuario</a> </div>
 
+                <div class="panel-body table-responsive">
                 <table class="table table-hover">
                     <thead>
                     <th>Nombre</th>
@@ -36,8 +38,8 @@
 
                             </td>
                             <td>
-                                <a href="{{route('mantenimientoUser.edit',$user->id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-duplicate" aria-hidden="true">Editar</span></a>
-                                <a href="{{route('mantenimientoUser.destroy',$user->id)}}" class="btn btn-warning" onclick="return confirm('¿Seguro que desea borrar este elemento?');"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true">Eliminar</span></a>
+                                <a title="Editar" href="{{route('mantenimientoUser.edit',$user->id)}}" class="btn btn-light"><span class="fa fa-edit" aria-hidden="true"></span></a>
+                                <a title="Eliminar" href="{{route('mantenimientoUser.destroy',$user->id)}}" class="btn btn-inverse" onclick="return confirm('¿Seguro que desea borrar este elemento?');"><span class="fa fa-remove" aria-hidden="true"></span></a>
 
                             </td>
 
@@ -48,10 +50,12 @@
 
                 </table>
 
-<hr/>
-                <div class="text-center">
-                    {!! $users->render() !!} {{--Esto por lo del paginado--}}
+                    <hr/>
+                    <div class="text-center">
+                        {!! $users->render() !!} {{--Esto por lo del paginado--}}
+                    </div>
                 </div>
+
         </div>
         </div>
     </div>

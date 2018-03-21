@@ -4,10 +4,13 @@
 @section('content')
 
     <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <br/>
-                <form action="#" accept-charset="UTF-8"  method="POST" >
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><span class="fa fa-list-alt fa-fw"></span> Nueva Noticia</div>
+
+                <div class="panel-body">
+
+                <form action="{{route('mantenimientoNoticia.store')}}" accept-charset="UTF-8" enctype="multipart/form-data" method="POST" >
                     {{csrf_field()}}
 
                     <div class="form-group">
@@ -33,19 +36,34 @@
 
                     </div>
 
+                    <div class="form-group">
+                        <label for="image">Seleccione imagen de Noticia/Articulo</label>
+                        <div>
+                               <input required name="image" type="file" id="image">
+                        </div>
+                    </div>
+
 
 
 
                     <div class="form-group">
                         <div class="form-group">
                             <label for="contenido">Contenido</label>
-                            <textarea class="textarea_editor form-control" name="contenido" id="contenido" rows="15" placeholder="Enter text ..." style="height:450px"></textarea>
+                            <textarea class="textarea_editor form-control" name="contenido" id="contenido" rows="15" placeholder="Ingrese Contenido..." style="height:450px"></textarea>
                         </div>
 
                     </div>
 
+                    <div class="form-group">
+
+                        <input class="btn btn-primary" type="submit" value="Guardar">
+                    </div>
+
                 </form>
+
+                </div>
             </div>
+
         </div>
     </div>
 @endsection

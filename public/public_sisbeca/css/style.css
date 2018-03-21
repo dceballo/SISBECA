@@ -76,6 +76,9 @@
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
   border-color: #d3e0e9 !important;
+  border-radius: 5px !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05) !important;
+
 }
 
 .preloader {
@@ -214,7 +217,7 @@ h6 {
   display: none;
 }
 .page-wrapper {
-  background: #fafafa;
+  /*background: #fafafa; */
   padding-bottom: 60px;
 }
 .container-fluid {
@@ -681,7 +684,7 @@ a:focus,
 button:focus,
 a:hover,
 button:hover {
-  color: #252525;
+  /*color: #252525;*/
   outline: none!important;
   text-decoration: none!important;
 }
@@ -2627,12 +2630,38 @@ table.dataTable thead .sorting::after {
   color: #ffffff;
 }
 .panel {
-  border-radius: 0;
   margin: 15px 0;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .panel-body {
   font-family: 'Poppins', sans-serif;
+  padding: 15px;
 }
+
+panel-default>.panel-heading {
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: #f1f1f1;
+}
+
+.panel-default {
+  border-color: #ddd;
+  border-radius: 5px !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
 .panel-primary {
   border-color: #4680ff;
 }
@@ -5037,7 +5066,7 @@ footer p {
 /*    Basic form
 ----------------------*/
 label {
-  font-weight: 400;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 /*    Form Horizontal
@@ -6859,7 +6888,10 @@ tbody tr td:last-child {
 ---------------------------------------------------------------------- */
 /*  10 - media screen and (max-width: 320px)
 ---------------------------------------------------------------------- */
-@media (min-width: 320px) and (max-width: 359px) {
+@media (min-width: 270px) and (max-width: 359px) {
+  body,a,p{
+    font-size: 12px !important;
+  }
   .title-margin-right {
     margin-right: 7px !important;
   }

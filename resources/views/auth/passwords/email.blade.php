@@ -36,9 +36,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5">
 
-                    <div class="login-content card">
+                    <div class="login-content panel panel-default">
                         <div class="panel-heading" align="center"> <h2> Recuperar Contraseña</h2> </div>
-                        <div class="login-form">
+                        <div class="login-form panel-body">
 
                             @if (session('status'))
                                 <div class="alert alert-success">

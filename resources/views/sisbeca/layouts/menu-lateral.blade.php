@@ -44,7 +44,7 @@
                 <li class="nav-label">Inicio(Vta Editor)</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-list-alt"></i><span class="hide-menu">Noticias</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="{{route('mantenimientoNoticia.create')}}">Mantenimiento</a></li>
+                        <li><a href="{{route('mantenimientoNoticia.index')}}">Mantenimiento</a></li>
                     </ul>
                 </li>
 
@@ -112,18 +112,11 @@
 
                     </ul>
                 </li>
-                <li class="nav-label">Gestion de Desincoporación (Vta Coord.)</li>
-                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Becarios ó Mentores</span></a>
+                <li class="nav-label">Gestion de Solicitudes (Vta Coord.)</li>
+                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Revisar Solicitudes</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">Desincorporacion Temporal</a></li>
-                        <li><a href="#">Desincorporacion Definitiva</a></li>
-                    </ul>
-                </li>
-                <li class="nav-label">Gestión de Reincorporacion (Vta Coord.)</li>
-                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Becarios ó Mentores</span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">Reincorporacion Temporal</a></li>
-                        <li><a href="#">Reincorporacion Definitiva</a></li>
+                        <li><a href="#">Desincorporación</a></li>
+                        <li><a href="#">Reincorporación</a></li>
                     </ul>
                 </li>
                 {{--Fin de Vistas del Coordinador--}}
@@ -205,16 +198,11 @@
                 {{--Fin de Vista de Becarios Unicamente--}}
 
                 {{--Inicio de Vista Compartida Becarios/Mentores--}}
-                <li class="nav-label">Desincoporación o Reincorporación(Vista Becarios-Mentores)</li>
-                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Desincoporación</span></a>
+                <li class="nav-label">Solicitudes(Vista Becarios-Mentores)</li>
+                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Solicitud</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">Solicitud Temporal</a></li>
-                        <li><a href="#">Solicitud Definitiva</a></li>
-                    </ul>
-                </li>
-                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Reincorporación</span></a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="#"> Solicitud </a></li>
+                        <li><a href="#">Desincorporación</a></li>
+                        <li><a href="#">Reincorporación</a></li>
                     </ul>
                 </li>
                 {{-- Fin de Vista Compartida Becarios/Mentores--}}

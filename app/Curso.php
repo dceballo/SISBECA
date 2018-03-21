@@ -10,7 +10,7 @@ class Curso extends Model
 
     public function becarios(){
 
-        return $this->belongsToMany('avaa\Becario','becarios_cursos','curso_id','becario_id')->withTimestamps();
+        return $this->belongsToMany('avaa\Becario','becarios_cursos','curso_id','becario_id','user_id')->withTimestamps();
     }
 
     public function institucion(){

@@ -33,7 +33,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-9 col-md-offset-2 card">
+            <div class="col-lg-12 col-md-9 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading"  align="center"><h2>Registrarse</h2></div>
 

@@ -20,7 +20,7 @@ class Mentor extends Model
 
     public function becarios(){
 
-        return $this->hasMany('avaa\Becario','mentor_id');
+        return $this->hasMany('avaa\Becario','mentor_id','user_id');
 
     }
 }

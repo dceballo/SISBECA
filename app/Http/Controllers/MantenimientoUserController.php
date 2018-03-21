@@ -126,6 +126,12 @@ class MantenimientoUserController extends Controller
         //para cargar un formulario el cual es donde vamos a editar algun tipo usuario
         $user = User::find($id);
 
+
+        if(is_null($user))
+        {
+            abort('404','Archivo no encontrado');
+        }
+
         return view('sisbeca.crudUser.editarUsuario')->with('user',$user);
     }
 
@@ -207,6 +213,10 @@ class MantenimientoUserController extends Controller
         // para eliminar un usuario preciso
 
         $user= User::find($id);
+        if(is_null($user))
+        {
+            abort('404','Archivo no encontrado');
+        }
         $user->delete();
 
         return  redirect()->route('mantenimientoUser.index');

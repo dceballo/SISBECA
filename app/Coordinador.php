@@ -20,7 +20,7 @@ class Coordinador extends Model
 
     public function becarios(){
 
-        return $this->hasMany('avaa\Becario','coordinador_id');
+        return $this->hasMany('avaa\Becario','coordinador_id','user_id');
 
     }
 

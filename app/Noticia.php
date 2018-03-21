@@ -10,7 +10,11 @@ class Noticia extends Model
 
     public function editor(){
 
-        return $this->belongsTo('avaa\Editor','editor_id');
+        return $this->belongsTo('avaa\Editor','editor_id','user_id');
 
     }
+
+    protected $fillable = [
+        'titulo', 'contenido', 'tipo','url_articulo',
+    ];
 }

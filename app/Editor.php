@@ -18,25 +18,25 @@ class Editor extends Model
 
     public function noticias(){
 
-        return $this->hasMany('avaa\Noticia','editor_id');
+        return $this->hasMany('avaa\Noticia','editor_id','user_id');
 
     }
 
     public function costo(){
 
-        return $this->hasOne('avaa\Costo','editor_id');
+        return $this->hasOne('avaa\Costo','editor_id','user_id');
 
     }
 
     public function actividades(){
 
-        return $this->hasMany('avaa\Actividad','editor_id');
+        return $this->hasMany('avaa\Actividad','editor_id','user_id');
 
     }
 
     public function instituciones(){
 
-        return $this->hasMany('avaa\Institucion','editor_id');
+        return $this->hasMany('avaa\Institucion','editor_id','user_id');
 
     }
 }

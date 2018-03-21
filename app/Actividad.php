@@ -12,12 +12,12 @@ class Actividad extends Model
 
     public function becarios(){
 
-        return $this->belongsToMany('avaa\Becario','becarios_actividades','actividad_id','becario_id')->withTimestamps();
+        return $this->belongsToMany('avaa\Becario','becarios_actividades','actividad_id','becario_id','user_id')->withTimestamps();
     }
 
     public function editor(){
 
-        return $this->belongsTo('avaa\Editor','editor_id');
+        return $this->belongsTo('avaa\Editor','editor_id','user_id');
 
     }
 }

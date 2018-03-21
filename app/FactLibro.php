@@ -17,7 +17,7 @@ class FactLibro extends Model
 
     public function becario(){
 
-        return $this->belongsTo('avaa\Becario','becario_id');
+        return $this->belongsTo('avaa\Becario','becario_id','user_id');
 
     }
 }

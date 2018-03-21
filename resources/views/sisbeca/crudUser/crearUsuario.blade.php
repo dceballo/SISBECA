@@ -5,8 +5,10 @@
 
     <div class="row">
         <div class="col-12">
-            <div class="card">
-                <br/>
+            <div class="panel panel-default">
+                <div class="panel-heading"><span class="fa fa-user fa-fw"></span> Nuevo Usuario</div>
+
+                <div class="panel-body">
                     <form action="{{route('mantenimientoUser.store')}}" accept-charset="UTF-8"  method="POST" >
                         {{csrf_field()}}
 
@@ -42,10 +44,12 @@
                         </div>
 
                         <div class="form-group">
+
                             <input class="btn btn-primary" type="submit" value="Guardar">
                         </div>
 
                     </form>
+                </div>
             </div>
         </div>
     </div>

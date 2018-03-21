@@ -5,8 +5,10 @@
 
     <div class="row">
         <div class="col-12">
-            <div class="card">
-                <br/>
+            <div class="panel panel-default">
+                <div class="panel-heading"><span class="fa fa-user fa-fw"></span> Editar</div>
+
+                <div class="panel-body">
                     <form method="POST" action={{route('mantenimientoUser.update',$user->id)}} accept-charset="UTF-8">
 
 
@@ -68,6 +70,7 @@
 
 
                     </form>
+                </div>
             </div>
         </div>
     </div>
