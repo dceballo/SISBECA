@@ -17,7 +17,7 @@ $factory->define(avaa\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$pOVcprZIVKUvlveOagvYPuUmrMdj6a8wUMIBLZyziemw6bzRwtqa2', // secret
+        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => str_random(10),
     ];
 });
