@@ -17,4 +17,10 @@ class Noticia extends Model
     protected $fillable = [
         'titulo', 'contenido', 'tipo','url_articulo',
     ];
+
+    //tiene un scope para las busquedas de noticias
+    public function scopeSearch($query,$titulo)
+    {
+        return $query->where('titulo','LIKE',"%$titulo%");
+    }
 }

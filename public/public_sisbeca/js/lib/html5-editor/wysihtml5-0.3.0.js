@@ -8109,12 +8109,12 @@ wysihtml5.views.View = Base.extend(
         ],
         ADDITIONAL_CSS_RULES = [
             "html             { height: 100%; }",
-            "body             { min-height: 100%; padding: 0; margin: 0; margin-top: -1px; padding-top: 1px; }",
+            "body             { min-height: 100%; padding: 0; margin: 0; margin-top: -1px; padding-top: 1px;color:#333; }",
             "._wysihtml5-temp { display: none; }",
             wysihtml5.browser.isGecko ?
                 "body.placeholder { color: graytext !important; }" :
                 "body.placeholder { color: #a9a9a9 !important; }",
-            "body[disabled]   { background-color: #eee !important; color: #999 !important; cursor: default !important; }",
+            "body[disabled]   { background-color: #eee !important; color: #333 !important; cursor: default !important; }",
             // Ensure that user see's broken images and can delete them
             "img:-moz-broken  { -moz-force-broken-image-icon: 1; height: 24px; width: 24px; }"
         ];

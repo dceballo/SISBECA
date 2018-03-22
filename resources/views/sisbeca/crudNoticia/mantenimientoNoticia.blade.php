@@ -8,7 +8,20 @@
                 <div class="panel-heading"><span class="fa fa-list-alt fa-fw"></span> Noticias</div>
                 <br/>
                 <div class="col-md-6"> <a href="{{ route('mantenimientoNoticia.create') }}" class="btn btn-info">Agregar Noticia</a> </div>
+                <div class="col-md-12 basic-form">
+                    <!-- Buscador de Noticias -->
+                    <form action="{{route('mantenimientoNoticia.index')}}" accept-charset="UTF-8" class="navbar-form pull-right" method="GET" >
 
+                     <div class="form-group">
+                        <div class="input-group input-group-rounded">
+                            <input type="text" value="{{$titulo}}" name="titulo" id="titulo" class="form-control">
+                            <span class="input-group-btn"><button class=" btn btn-primary btn-group-right" type="submit"><i class="ti-search"></i></button></span>
+                        </div>
+                     </div>
+
+                    </form>
+
+                </div>
                 <div class="panel-body table-responsive">
                     <table class="table table-hover">
                         <thead>

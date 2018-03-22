@@ -14,10 +14,9 @@ class MantenimientoNoticiaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $noticias = Noticia::orderBy('id','ASC')->paginate(4);
+        $noticias = Noticia::search($request->titulo)->orderBy('id','ASC')->paginate(4);
 
         //each lo que hace es un recorrido por cada uno de las noticias
         $noticias->each(function ($noticias){
@@ -27,7 +26,7 @@ class MantenimientoNoticiaController extends Controller
 
 
 
-        return view('sisbeca.crudNoticia.mantenimientoNoticia')->with('noticias',$noticias);
+        return view('sisbeca.crudNoticia.mantenimientoNoticia')->with('noticias',$noticias)->with('titulo',$request->titulo);
     }
 
     /**

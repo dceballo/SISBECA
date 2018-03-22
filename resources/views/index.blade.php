@@ -61,122 +61,87 @@
        <div class="container">
        	<div class="row">
 
-       		<div class="col-lg-8 col-md-8 col-xs-8">
-      <section id="noticias" class="section">
-         <div class="container">
-            <div class="section-header">
-               <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Noticias </h2>
-               <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-               <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">En esta sección se ubicaran las noticias mas actuales del programa AVAA.</p>
-            </div>
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-12">
-                     <div id="carouselNoticiasIndicadores" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                           <li data-target="#carouselNoticiasIndicadores" data-slide-to="0" class="active"></li>
-                           <li data-target="#carouselNoticiasIndicadores" data-slide-to="1"></li>
-                           <li data-target="#carouselNoticiasIndicadores" data-slide-to="2"></li>
-                           <li data-target="#carouselNoticiasIndicadores" data-slide-to="3"></li>
-                           <li data-target="#carouselNoticiasIndicadores" data-slide-to="4"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                           <div class="carousel-item active">
-                              <div class="row">
-                                 <div class="col-md-12 col-sm-12">
-                                    <div id="noticias" class="noticias-item">
-                                       <!--testimonial-item-->
-                                       <div class="noticias-text">
-                                          <img src="{{asset('info_sitio/img/imgnoticias/noticia1.jpg')}}" alt="Noticia 1" />
-                                          <h3>Más de 2000 personas se congregaron en la FEI 2017 de AVAA</h3>
-                                          <p style="text-align:justify;">En la celebración de sus 75 años de labor ininterrumpida brindando información oportuna, objetiva y real sobre oportunidades de estudio en Estados Unidos y Canadá la Asociación Venezolano Americana de Amistad (AVAA) llevó a cabo el pasado 30 de septiembre, su XXV Feria Educativa Internacional 2017, donde más 20 instituciones académicas nacionales e internacionales se hicieron presentes...</p>
-                                          <a href="" class="btn btn-primary noticiasboton">Mas informacion</a>
-                                          <br/><br/>
-                                       </div>
-                                    </div>
+
+              <div class="col-lg-8 col-md-8 col-xs-8">
+                <section id="noticias" class="section">
+                  <div class="container">
+                     <div class="section-header">
+                        <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Noticias </h2>
+                        <hr class="lines wow zoomIn" data-wow-delay="0.3s">
+                        <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">En esta sección se ubicaran las noticias mas actuales del programa AVAA.</p>
+                     </div>
+                     @if($cantidad!=0)
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-md-12">
+                              <div id="carouselNoticiasIndicadores" class="carousel slide" data-ride="carousel">
+                                 <ol class="carousel-indicators">
+                                    @for($i=0;$i<$cantidad;$i++)
+                                       @if($i==0)
+                                           <li data-target="#carouselNoticiasIndicadores" data-slide-to="{{$i}}" class="active"></li>
+                                       @else
+                                           <li data-target="#carouselNoticiasIndicadores" data-slide-to={{$i}}></li>
+                                       @endif
+                                    @endfor
+                                 </ol>
+                                 <div class="carousel-inner">
+
+                                    @for($i=0;$i<$cantidad;$i++)
+                                             @if($i==0)
+                                                <div class="carousel-item active">
+                                             @else
+                                                <div class="carousel-item ">
+
+                                             @endif
+
+                                             <div class="row">
+                                                <div class="col-md-12 col-sm-12">
+                                                   <div id="noticias" class="noticias-item">
+                                                      <!--testimonial-item-->
+                                                      <div class="noticias-text">
+                                                         <img src="{{asset($noticias->get($i)['url_imagen'])}}" alt="Noticia {{$i+1}}" />
+                                                         <h3>{{$noticias->get($i)['titulo']}}</h3>
+                                                         <p style="text-align:justify;">
+                                                            {{$noticias->get($i)['contenido']}}
+                                                         </p>
+                                                         <a href="" class="btn btn-primary noticiasboton">Mas informacion</a>
+                                                         <br/><br/>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+
+                                             @if($i==0)
+                                                </div>
+                                             @else
+                                                </div>
+                                             @endif
+
+
+                                    @endfor
+
                                  </div>
-                              </div>
-                           </div>
-                           <div class="carousel-item ">
-                              <div class="row">
-                                 <div class="col-md-12 col-sm-12">
-                                    <div id="noticias" class="noticias-item">
-                                       <!--testimonial-item-->
-                                       <div class="noticias-text">
-                                          <img src="{{asset('info_sitio/img/imgnoticias/noticia2.jpg')}}" alt="Noticia 2" />
-                                          <h3>Hastrid Pardi, una versión mejorada de sí misma</h3>
-                                          <p style="text-align:justify;">Hastrid Pardi, la becaria de ProExcelencia de la Asociación Venezolano Americana de Amistad (AVAA), y estudiante de Ingeniería Mecánica en la Universidad Metropolitana, fue seleccionada para cursar un cuatrimestre de su carrera en la Universidad de Wyoming, Estados Unidos, gracias al ProgramaIntercambio Global a Nivel Universitario (UGRAD), iniciativa educacional del Gobierno de los Estados Unidos de América a través del Buró de Asuntos Culturales y Educativos (ECA) del Departamento de Estado...</p>
-                                          <a href="" class="btn btn-primary noticiasboton">Mas informacion</a>
-                                          <br/><br/>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="carousel-item">
-                              <div class="row">
-                                 <div class="col-md-12 col-sm-12">
-                                    <div id="noticias" class="noticias-item">
-                                       <!--testimonial-item-->
-                                       <div class="noticias-text">
-                                          <img src="{{asset('info_sitio/img/imgnoticias/noticia3.jpg')}}" alt="Noticia 3" />
-                                          <h3>Chevron y AVAA preparados para los 18 hoyos por la educación</h3>
-                                          <p style="text-align:justify;">En el marco de la celebración de los 75 años de nuestra Asociación Venezolano Americana de Amistad (AVAA), una vez más llevaremos a cabo, como de costumbre, el Torneo de Golf de la Amistad, “Copa Chevron”, en su edición XXXVI , los días 21 y 23 de noviembre en el campo del Valle Arriba Golf Club (VAGC)...</p>
-                                          <a href="" class="btn btn-primary noticiasboton">Mas informacion</a>
-                                          <br/><br/>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="carousel-item">
-                              <div class="row">
-                                 <div class="col-md-12 col-sm-12">
-                                    <div id="noticias" class="noticias-item">
-                                       <!--testimonial-item-->
-                                       <div class="noticias-text">
-                                          <img src="{{asset('info_sitio/img/imgnoticias/noticia4.jpg')}}" alt="Noticia 4" />
-                                          <h3>AVAA MUN 2017 regresó por la democracia y el compromiso social</h3>
-                                          <p style="text-align:justify;">En aras de seguir formando ciudadanos integrales, la Asociación Venezolano Americana de Amistad (AVAA), llevó a cabo la tercera edición del Modelo de Naciones Unidas (AVAA MUN) bajo el liderazgo de  becarios de ProExcelencia, los días 5 y 6 de noviembre en los espacios del IESA...</p>
-                                          <a href="" class="btn btn-primary noticiasboton">Mas informacion</a>
-                                          <br/><br/>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="carousel-item">
-                              <div class="row">
-                                 <div class="col-md-12 col-sm-12">
-                                    <div id="noticias" class="noticias-item">
-                                       <!--testimonial-item-->
-                                       <div class="noticias-text">
-                                          <img src="{{asset('info_sitio/img/imgnoticias/noticia5.jpeg')}}" alt="Noticia 5" />
-                                          <h3>Sofía Colina, egresada ProExcelencia: Ser venezolano, el reflejo del becario AVAA</h3>
-                                          <p style="text-align:justify;">Jonathan Castro, Licenciado en Biología de la Universidad Simón Bolívar. Su hermana pasó por una crisis de salud necesitando muchos donantes de sangre. Después de ese duro momento, Jonathan creó el programa “Un voluntario por la vida”. Hoy en día, cada tres meses nuestros becarios acompañados de quienes logren motivar, donan sangre para salvar vidas...</p>
-                                          <a href="" class="btn btn-primary noticiasboton">Mas informacion</a>
-                                          <br/><br/>
-                                       </div>
-                                    </div>
-                                 </div>
+                                 <a class="carousel-control-prev" href="#carouselNoticiasIndicadores" role="button" data-slide="prev">
+                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                 <span class="sr-only">Previous</span>
+                                 </a>
+                                 <a class="carousel-control-next" href="#carouselNoticiasIndicadores" role="button" data-slide="next">
+                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                 <span class="sr-only">Next</span>
+                                 </a>
                               </div>
                            </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselNoticiasIndicadores" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselNoticiasIndicadores" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                        </a>
                      </div>
+                  @else
+                        <h6 align="center" style="font-weight: bold;background-color: rgba(115,171,217,0.1)">No se Encontraron Noticias Registradas</h6>
+                  @endif
+
                   </div>
-               </div>
-            </div>
-         </div>
-      </section>
-  </div>
+               </section>
+           </div>
+
+
 
 <div class="col-lg-4 col-md-4 col-xs-4 notiasresponsive">
   <table id="tablaUnica" class="table table-striped unica">
@@ -191,6 +156,9 @@
 </div>
 </div>
       <!-- Fin de Sesion de Noticias -->
+
+
+
       <section id="MiembrosInstitucionales" class="section">
          <div class="container">
             <div class="section-header">
@@ -198,6 +166,8 @@
                <hr class="lines wow zoomIn" data-wow-delay="0.3s">
                <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">En esta sección se listaran las entes institucionales de la AVAA.</p>
             </div>
+
+            @if($cantM != 0)
             <div align="center" class="section" data-stellar-background-ratio="0.1">
                <br/><br/>
                <div class="container" >
@@ -325,8 +295,12 @@
                   </div>
                </div>
             </div>
+            @else
+                  <h6 align="center" style="font-weight: bold;background-color: rgba(115,171,217,0.1)">No se Encontraron Miembros Institucionales Registrados</h6>
+            @endif
          </div>
       </section>
+
       <!-- Organizaciones -->
       <section id="organizaciones" class="section">
          <div class="container">

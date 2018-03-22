@@ -47,107 +47,55 @@
                <hr class="lines wow zoomIn" data-wow-delay="0.3s">
                <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s"><strong>Artículos relacionados con Proexcelencia AVAA de educación integral en Venezuela</strong></p>
             </div>
+
             <div class="row letrasResponsive">
                <div class="side-center col-sm-12 col-md-12">
+
+
+                  <!-- Buscador de Noticias -->
+                  <div class="row">
+                     <div class="col-lg-8 col-md-6 "></div>
+                     <div class="col-lg-4 col-md-6 ">
+
+                     <form action="{{route('noticias')}}" name="createPost" accept-charset="UTF-8"method="GET" >
+                     <label class="control-label" for="titulo">Busqueda</label>
+                        <div class="form-group input-group">
+                           <input id="titulo" name="titulo" type="text" value="{{$titulo}}" class="form-control">
+                           <span class="input-group-btn"><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button></span>
+                        </div>
+
+                     </form>
+
+
+
+                     </div>
+                  </div>
                   <hr/>
+                   @if( $num_noticias != 0)
                   <ul class="list-group">
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a href="#"><strong>Más de 2000 personas se congregaron en la FEI 2017 de AVAA</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Hastrid Pardi, una versión mejorada de sí misma</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Chevron y AVAA preparados para los 18 hoyos por la educación</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>AVAA MUN 2017 regresó por la democracia y el compromiso social</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Sofía Colina, egresada ProExcelencia: Ser venezolano, el reflejo del becario AVAA</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Regresa renovada la XXV Feria Educativa Internacional de AVAA 2017</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Leilany Estrada: una historia de resiliencia, sueños y esfuerzo</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>AVAA y ProExcelencia ganadores del Premio Arturo Uslar Pietri 2017</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>26 historias, sueños y metas que egresan de ProExcelencia AVAA</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>AVAAMUN 2017 regresa por la democracia y el compromiso social</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Becarios del programa excelencia compartieron historias y risas con abuelos de la Casa Hogar San Judas Tadeo</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Ailed Pereira, orgullosa de ser reconocida como venezolana en Ohio</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>ProExcelencia sigue adaptándose a las nuevas tecnologías a través de Moodle</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Un Voluntario por la Vida sigue impactando en los héroes AVAA</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Adriana Caballero, promoviendo el cambio y el desarrollo social</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>75 años impactando la educación integral y el futuro de Venezuela</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Patrocinantes de ProExcelencia lograron potenciar 226 jóvenes durante 2016</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Más de 15 mil personas fueron atendidas en el Centro Oficial de Asesorías Académicas AVAA</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>250 becarios AVAA marcaron su huella en 2016</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>La AGA 2017 premió el esfuerzo y compromiso de sus becarios</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>75 años formando y creyendo en jóvenes venezolanos</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Becarios AVAA sacaron el pecho en la Hacienda Santa Teresa</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>De Becarios Awards a STAFF AVAA</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Egresado AVAA se hace sentir en Kraft Heinz</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Ederson Villamizar: Un Ingeniero Geofísico con ejemplo de compromiso</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Gustavo Roosen; Mensaje de Navidad 2016</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Comité de Becarios se refresca con nuevos rostros</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Becarios de AVAA brillaron en el premio al Mérito de la UCV</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>“Orientación al Logro”: Cuatro años guiando al futuro</strong></a></p>
-                     </li>
-                     <li class="list-group-item" style="margin-left: 85px;border: none">
-                        <p style=" margin-bottom: 0px"><a   href="#"><strong>Houston celebró la IX entrega del Torneo de Golf de la Amistad AVAA</strong></a></p>
-                     </li>
+                      @foreach( $noticias as $noticia)
+                          <li class="list-group-item" style="margin-left: 85px;border: none">
+                              <p style=" margin-bottom: 0px"><a href="#"><strong>{{$noticia->titulo}}</strong></a></p>
+                          </li>
+                      @endforeach
+
                   </ul>
+                   @else
+                       <h6 align="center" style="font-weight: bold;background-color: rgba(115,171,217,0.1)">No se Encontraron Resultados...</h6>
+                       @endif
                   <br/>
                   <hr/>
+                   <div class="text-center">
+                       {!! $noticias->render() !!} {{--Esto por lo del paginado--}}
+                   </div>
                </div>
             </div>
          </div>
       </section>
-      <!--fin de seccion de membresia institucional-->
+
 
    @endsection
+@section('personaljs')
+
+
+@endsection

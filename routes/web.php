@@ -12,9 +12,7 @@
 */
 
 //Web Site
-Route::get('/', function () {
-    return view('index')->with('route',"home");
-});
+Route::get('/','SitioWebController@index')->name('home');
 
 Route::get('/nosotros', function(){
     return view('web_site.nosotros')->with('route','nosotros');
@@ -37,10 +35,7 @@ Route::get('/contactenos', function(){
 
 })->name('contactenos');
 
-Route::get('/noticias', function(){
-    return view('web_site.noticias')->with('route','noticias');
-
-})->name('noticias');
+Route::get('/noticias','SitioWebController@noticias')->name('noticias');
 
 
 Route::get('/foo', function () {
