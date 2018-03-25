@@ -4,8 +4,11 @@ namespace avaa\Http\Controllers;
 
 use avaa\Coordinador;
 use avaa\Editor;
-use Illuminate\Http\Request;
 use avaa\User;
+use Redirect;
+use Yajra\Datatables\Datatables;
+use Illuminate\Http\Request;
+use Laracasts\Flash\Flash;
 
 class MantenimientoUserController extends Controller
 {
@@ -26,12 +29,24 @@ class MantenimientoUserController extends Controller
 
     public function index()
     {
-
-        $users = User::orderBy('id','ASC')->paginate(4);
-
-
-        return view('sisbeca.crudUser.mantenimientoUsuario')->with('users',$users);
+        return view('sisbeca.crudUser.mantenimientoUsuario');
     }
+
+    public function getUsers()
+    {
+        /*
+        $model = User::query();
+
+        return \DataTables::eloquent($model)
+            ->addColumn('accion', 'Hi {{$name}}!')
+            ->toJson();
+*/
+        $users = User::select(['id','name','email','rol'])->where('rol', '=', "coordinador")->orWhere('rol','editor')->orWhere('rol','directivo')->get();
+        return Datatables::of($users)
+            ->make(true);
+      /*  return \DataTables::of(User::query()->where('rol', '=', "coordinador")->orWhere('rol','=','editor')->orWhere('rol','=','directivo'))->make(true);
+    */
+      }
 
 
     /**
@@ -81,7 +96,11 @@ class MantenimientoUserController extends Controller
 
                 $coordinador->user_id = $user->id;
 
-                $coordinador->save();
+                if($coordinador->save()){
+                    flash('Usuario->'.strtoupper($user->rol).' Registrado Exitosamente!','success')->important();
+                }else{
+                    flash('Ha ocurrido un error al registrar el Usuario->'.strtoupper($user->rol))->error()->important();
+                }
             } else {
                 if ($user->rol === 'editor') {
 
@@ -90,7 +109,13 @@ class MantenimientoUserController extends Controller
 
                     $editor->user_id = $user->id;
 
-                    $editor->save();
+
+                    if($editor->save()){
+                        flash('Usuario->'.strtoupper($user->rol).' Registrado Exitosamente!','success')->important();
+                    }
+                    else{
+                        flash('Ha ocurrido un error al registrar el Usuario->'.strtoupper($user->rol))->error()->important();
+                    }
 
                 }
             }
@@ -98,8 +123,9 @@ class MantenimientoUserController extends Controller
 
         }
         else {
-            dd('No puedes crear un rol '.$request->rol.' porque ya existe'); // Esto se cambia por un mensaje de error que no se puede crear mas de un usuario con el rol seleccionado
 
+            flash('No puedes crear un usuario con rol '.$request->rol.' porque ya existe')->error()->important();
+            return back();
         }
 
     }
@@ -129,7 +155,8 @@ class MantenimientoUserController extends Controller
 
         if(is_null($user))
         {
-            abort('404','Archivo no encontrado');
+            flash('El Archivo solicitado no ha sido encontrado','error')->important();
+            return back();
         }
 
         return view('sisbeca.crudUser.editarUsuario')->with('user',$user);
@@ -166,19 +193,28 @@ class MantenimientoUserController extends Controller
 
             $user->save();
 
+            flash('Usuario Actualizado Exitosamente','success')->important();
+
             //Si al actualizar se quiere cambiar de rol  a uno que tenga una relacion con tablas distintas se manejan estas condiciones
 
             //ademas esto mas adelante tambien se debe modificar ya que si un coordinador tiene a cargo becarios o un editor tiene otras tablas ya asociadas entonces se puede perder las relaciones
 
             if(($rolViejo==='directivo'||$rolViejo==='coordinador')&&($rolNuevo=='editor'))
             {
-                $editDelete= Coordinador::query()->where('user_id', '=', "$user->id")->delete();
+                $coordinadorDelete= Coordinador::query()->where('user_id', '=', "$user->id")->delete();
 
                 $edit= new Editor();
 
                 $edit->user_id=$user->id;
 
-                $edit->save();
+                if($edit->save())
+                {
+                    flash('Usuario con rol '.strtoupper($rolViejo).' Actualizado a rol '.strtoupper($rolNuevo).' Exitosamente','success')->important();
+                }
+                else
+                {
+                    flash('Ha ocurrido un error al cambiar rol de usuario')->error()->important();
+                }
             }
             else
             {
@@ -191,12 +227,18 @@ class MantenimientoUserController extends Controller
 
                     $coord->user_id=$user->id;
 
-                    $coord->save();
+                   if( $coord->save()){
+                       flash('Usuario con rol '.strtoupper($rolViejo).' Actualizado a rol '.strtoupper($rolNuevo).' Exitosamente','success')->important();
+                   }
+                   else{
+                       flash('Ha ocurrido un error al cambiar rol de usuario')->error()->important();
+                   }
                 }
             }
         }
         else{
-            dd('No puedes cambiar a un rol '.$request->rol.' porque ya este existe'); // Esto se cambia por un mensaje de error que no se puede crear mas
+            flash('No puedes cambiar de rol '.strtoupper($rolViejo).' porque ya existe el rol '.strtoupper($rolNuevo))->error()->important();
+
         }
 
         return  redirect()->route('mantenimientoUser.index');
@@ -215,9 +257,18 @@ class MantenimientoUserController extends Controller
         $user= User::find($id);
         if(is_null($user))
         {
-            abort('404','Archivo no encontrado');
+            flash('El Archivo solicitado no ha sido encontrado')->error()->important();
+            return back();
         }
-        $user->delete();
+
+        if($user->delete()) {
+
+            flash('El Usuario ha sido Eliminado Exitosamente', 'info')->important();
+
+        }
+        else{
+            flash('Ha ocurrido un error al tratar de eliminar usuario')->error()->important();
+        }
 
         return  redirect()->route('mantenimientoUser.index');
     }

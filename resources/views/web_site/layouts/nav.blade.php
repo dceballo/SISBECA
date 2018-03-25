@@ -116,8 +116,14 @@
                      @if($route=="noticias")
                         <a class="nav-link page-scroll active" target="_self" href="#hero-area">Noticias</a>
                         @else
-                        <a class="nav-link" target="_self" href="{{asset('noticias')}}">Noticias</a>
-                        @endif
+                             @if($route=="articulos")
+                                 <a class="nav-link active" target="_self" href="{{asset('noticias')}}">Noticias</a>
+                             @else
+                                  <a class="nav-link" target="_self" href="{{asset('noticias')}}">Noticias</a>
+                             @endif
+                     @endif
+
+
                      </li>
                      <li class="nivel1 nav-item">
                      @if($route=="contactenos")
@@ -127,9 +133,9 @@
                         @endif
                      </li>
                      <li class="nivel1 nav-item">
-                     
+
                        <a class="nav-link" target="_blank" href="{{asset(route('sisbeca'))}}">SISBECA</a>
-                        
+
                      </li>
                   </ul>
                </div>
@@ -235,8 +241,13 @@
                @if($route=="noticias")
                   <a class="page-scroll active" target="_self" href="#hero-area">Noticias</a>
                   @else
-                     <a  target="_self" href="{{asset('noticias')}}">Noticias</a>
+                       @if($route=="articulos")
+                           <a  class=active" target="_self" href="{{asset('noticias')}}">Noticias</a>
+                       @else
+                              <a  target="_self" href="{{asset('noticias')}}">Noticias</a>
+                       @endif
                   @endif
+
                </li>
                <li>
                @if($route=="contactenos")

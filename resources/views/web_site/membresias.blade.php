@@ -60,7 +60,7 @@
                <div class="container">
                   <div class="row letrasResponsive">
                      <div class="col-md-12 wow animated fadeInUp animated" data-wow-delay=".2s" style="visibility: visible;-webkit-animation-delay: .2s; -moz-animation-delay: .2s; animation-delay: .2s;">
-                        <ul class="list-group">
+                        <ul align="justify">
                            <li class="list-group-item">
                               <p >
                                  La Membresía Nacional puede realizarse de manera individual o por medio de una institución: 
@@ -77,30 +77,30 @@
                                  </h4>
                               </div>
                               <div id="coll1" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="head1" style="">
-                                 <div class="panel-body">
+                                 <div class="contenidoDeList panel-body" align="justify">
                                     <p >
                                        Son ejecutivos que se afilian de manera personal con el fin de participar en las actividades de la Asociación, con un aporte de Bs.F. 30.000 (+ IVA) anual y, reciben los siguientes beneficios:
                                     </p>
-                                    <ul class="list-group">
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style=" margin-bottom: 0px">Carta de afiliación que lo acredita como miembro de AVAA. </p>
+                                    <ul>
+                                       <li  >
+                                          <p >Carta de afiliación que lo acredita como miembro de AVAA. </p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px">Descuentos especiales en nuestras asesorías.</p>
+                                       <li  >
+                                          <p  >Descuentos especiales en nuestras asesorías.</p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px">Información directa sobre oportunidades de cursos y becas en el exterior. </p>
+                                       <li  >
+                                          <p  >Información directa sobre oportunidades de cursos y becas en el exterior. </p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px">Nombre en página web de AVAA.</p>
+                                       <li  >
+                                          <p  >Nombre en página web de AVAA.</p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px">Información directa de los eventos AVAA.</p>
+                                       <li  >
+                                          <p  >Información directa de los eventos AVAA.</p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px">Mención pública de reconocimiento en eventos de la AVAA.</p>
+                                       <li  >
+                                          <p  >Mención pública de reconocimiento en eventos de la AVAA.</p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
+                                       <li  >
                                           <p >Copia digital del anuario del Programa Excelencia. 
                                              Otros servicios.
                                           </p>
@@ -124,57 +124,57 @@
                                  </h4>
                               </div>
                               <div id="coll2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="head2" style="">
-                                 <div class="panel-body">
+                                 <div class="contenidoDeList panel-body"  align="justify">
                                     <p>
                                        Las empresas pueden contribuir con la formación y educación integral de Becarios AVAA a través de convenios de inversión social (Fondo de Alianzas y Becas Estratégicas, FABE). Estos aportes son donaciones directas al Programa Excelencia AVAA y, son considerados deducibles de ISLR en Venezuela y Estados Unidos.
                                     </p>
                                     <p >
                                        Actualmente AVAA tiene 41 empresas como miembros corporativos en Venezuela y 7 en Estados Unidos.
                                     </p>
-                                    <p style="font-size: 16px">
+                                    <p>
                                        Los convenios de inversión son:
                                     </p>
-                                    <ul class="list-group">
-                                       <p style="margin-bottom: 0px">
+                                    <ul>
+                                       <p  >
                                           <strong>DONANTE PLATINUM</strong>
                                        </p>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style=" margin-bottom: 0px">Formamos Talentos del Futuro </p>
+                                       <li  >
+                                          <p >Formamos Talentos del Futuro </p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
+                                       <li  >
                                           <p >Financia la Educación y Formación Integral de Becarios AVAA por 5 años. </p>
                                        </li>
                                     </ul>
-                                    <ul class="list-group">
-                                       <p style="font-size: 17px;margin-bottom: 0px">
+                                    <ul>
+                                       <p>
                                           <strong>DONANTE DIAMANTE</strong>
                                        </p>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style=" margin-bottom: 0px">Sembramos Futuro 2 x 2</p>
+                                       <li  >
+                                          <p >Sembramos Futuro 2 x 2</p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
+                                       <li  >
                                           <p>Financia la Educación y Formación Integral de Becarios AVAA por 2 años. </p>
                                        </li>
                                     </ul>
-                                    <ul class="list-group">
-                                       <p style="margin-bottom: 0px">
+                                    <ul>
+                                       <p  >
                                           <strong>DONANTE ORO</strong>
                                        </p>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style=" margin-bottom: 0px">Abonamos Futuro</p>
+                                       <li  >
+                                          <p >Abonamos Futuro</p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
+                                       <li  >
                                           <p>Financia la Educación y Formación Integral de Becarios AVAA por 1 año. </p>
                                        </li>
                                     </ul>
-                                    <ul class="list-group">
-                                       <p style="margin-bottom: 0px">
+                                    <ul>
+                                       <p  >
                                           <strong>DONANTE ESTRELLA</strong>
                                        </p>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style=" margin-bottom: 0px">Patrocinantes de sueños educativos </p>
+                                       <li  >
+                                          <p >Patrocinantes de sueños educativos </p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
+                                       <li  >
                                           <p>Invierte en la Educación y Formación Integral de Becarios AVAA por 5 años con un financiamiento del 10 % del total de los becarios cada año.</p>
                                        </li>
                                     </ul>
@@ -194,27 +194,29 @@
             <div class="section-header">
                <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Membresía Institucional </h2>
                <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-               <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Nuestro programa de Membresías Institucionales (conocido como IMP por sus siglas en inglés Institutional Membership Program) incluye instituciones académicas de Estados Unidos, Canadá y Venezuela, que anualmente realizan un aporte para contribuir con el desarrollo de nuestros programas de inversión social.</p>
+
             </div>
             <div class="row letrasResponsive">
-               <div class="side-center col-sm-12 col-md-12">
+               <div class=" contenidoDeList side-center col-sm-12 col-md-12"  align="justify">
+
+                 <p> Nuestro programa de Membresías Institucionales (conocido como IMP por sus siglas en inglés Institutional Membership Program) incluye instituciones académicas de Estados Unidos, Canadá y Venezuela, que anualmente realizan un aporte para contribuir con el desarrollo de nuestros programas de inversión social.</p>
                   <h3 class="lead">  <strong>En retribución a su ayuda, AVAA le ofrece los siguientes beneficios: </strong> </h3>
                   <hr/>
-                  <ul class="list-group">
-                     <li class="list-group-item" style="margin-left: 55px;border: none">
-                        <p style=" margin-bottom: 0px"><strong>Información de la institución en la página web de AVAA.</strong></p>
+                  <ul >
+                     <li>
+                        <p><strong>Información de la institución en la página web de AVAA.</strong></p>
                      </li>
-                     <li class="list-group-item" style="margin-left: 55px;border: none">
-                        <p style="margin-bottom: 0px"><strong>Envío mensual de listado de estudiantes potenciales.</strong></p>
+                     <li >
+                        <p><strong>Envío mensual de listado de estudiantes potenciales.</strong></p>
                      </li>
-                     <li class="list-group-item" style="margin-left: 55px;border: none">
-                        <p style="margin-bottom: 0px"><strong>Tarifas y descuentos especiales en los eventos educativos organizados por AVAA.</strong> </p>
+                     <li>
+                        <p><strong>Tarifas y descuentos especiales en los eventos educativos organizados por AVAA.</strong> </p>
                      </li>
-                     <li class="list-group-item" style="margin-left: 55px;border: none">
-                        <p style="margin-bottom: 0px"><strong>Uso de la biblioteca de AVAA durante 3 días al año para dictar charlas. </strong> </p>
+                     <li >
+                        <p><strong>Uso de la biblioteca de AVAA durante 3 días al año para dictar charlas. </strong> </p>
                      </li>
-                     <li class="list-group-item" style="margin-left: 55px;border: none">
-                        <p style=" margin-bottom: 0px"><strong>Asistencia en la publicación de avisos en prensa, reservación de hotel, transporte, etc. Otros servicios.</strong></p>
+                     <li>
+                        <p><strong>Asistencia en la publicación de avisos en prensa, reservación de hotel, transporte, etc. Otros servicios.</strong></p>
                      </li>
                   </ul>
                   <br/>

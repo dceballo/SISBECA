@@ -58,13 +58,15 @@
             <section class="Material-accordion-section section-padding">
                <div class="container">
                   <div class="row letrasResponsive">
-                     <div class="col-md-12 wow animated fadeInUp animated" data-wow-delay=".2s" style="visibility: visible;-webkit-animation-delay: .2s; -moz-animation-delay: .2s; animation-delay: .2s;">
+                     <div class="col-md-12 wow animated fadeInUp animated" align="justify" data-wow-delay=".2s" style="visibility: visible;-webkit-animation-delay: .2s; -moz-animation-delay: .2s; animation-delay: .2s;">
                         <ul class="list-group">
                            <li class="list-group-item">
                               <p>
                                  AVAA lleva adelante los <strong>Centros de Asesorías Educativas oficiales de las Embajadas de Estados Unidos y Canadá en Venezuela.</strong> Nuestros asesores son entrenados para aconsejar de manera objetiva y veraz, a los estudiantes o profesionales venezolanos sobre todas las propuestas educativas que ofrecen ambos países.
                               </p>
-                              <p>Los <strong>montos* de inversión por asesoría, a partir del 18 de ENERO de 2018,</strong> son los siguientes:</p>
+
+                              <p><strong>*Todos los montos incluyen IVA y deben ser cancelados a través de transferencia o depósito bancario 48 horas hábiles antes de concertar la cita. Una vez efectuado por favor notificar.</strong></p>
+                              <p>Los <strong>montos* de inversión por asesoría, válidos a partir del 18 de ENERO de 2018,</strong> son los siguientes:</p>
                            </li>
                         </ul>
                         <div class="panel-group Material-default-accordion" id="Material-accordion" role="tablist" aria-multiselectable="true">
@@ -91,16 +93,16 @@
                                  </h4>
                               </div>
                               <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" style="">
-                                 <div class="panel-body">
-                                    <ul class="list-group">
-                                       <p style="margin-bottom: 3px"><strong>Consiste en:</strong></p>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none" >
-                                          <p style="margin-bottom: 0px">Selección de institución y aplicación al curso.</p>
+                                 <div class="contenidoDeList panel-body" align="justify">
+                                    <ul>
+                                       <p><strong>Consiste en:</strong></p>
+                                       <li >
+                                          <p >Selección de institución y aplicación al curso.</p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none" >
-                                          <p style="margin-bottom: 0px">Guía al postulante en la solicitud de visado estudiantil. </p>
+                                       <li  >
+                                          <p>Guía al postulante en la solicitud de visado estudiantil. </p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none" >
+                                       <li >
                                           <p>Orientación para seleccionar el sistema de residencia y requisitos para trámites de Seguro Estudiantil.</p>
                                        </li>
                                     </ul>
@@ -117,47 +119,49 @@
                                  </h4>
                               </div>
                               <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" style="">
-                                 <div class="panel-body">
+                                 <div class="contenidoDeList panel-body" align="justify">
                                     <p>Ofrece al estudiante orientación e información necesaria para aplicar a instituciones de educación superior: pregrados, postgrados, diplomados, maestrías, y doctorados.</p>
-                                    <ul class="list-group">
-                                       <p style="margin-bottom: 3px">
+                                    <ul>
+                                       <p >
                                           <strong>   La asesoría para estudios universitarios incluye:</strong>
                                        </p>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px"> Sesión de Coaching con el estudiante para determinar área de interés.</p>
+                                       <li >
+                                          <p > Sesión de Coaching con el estudiante para determinar área de interés.</p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px"> Orientación en la preselección y selección del programa e institución (acreditadas en Estados Unidos y Canadá)</p>
+                                       <li >
+                                          <p > Orientación en la preselección y selección del programa e institución (acreditadas en Estados Unidos y Canadá)</p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px"> Información sobre posibilidades de ayuda financiera y recursos online para consultas e investigación. </p>
+                                       <li >
+                                          <p > Información sobre posibilidades de ayuda financiera y recursos online para consultas e investigación. </p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px"> Guía en procesos de legalización, apostillamiento, traducción de notas, títulos académicos y en la elaboración de cartas de recomendación para la institución seleccionada. </p>
+                                       <li >
+                                          <p > Guía en procesos de legalización, apostillamiento, traducción de notas, títulos académicos y en la elaboración de cartas de recomendación para la institución seleccionada. </p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px">  Revisión de ensayo.</p>
+                                       <li >
+                                          <p >  Revisión de ensayo.</p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px">   Orientación de los exámenes de suficiencia requeridos (TOEFL, IELTS, SAT, GRE, GMAT).</p>
+                                       <li >
+                                          <p >   Orientación de los exámenes de suficiencia requeridos (TOEFL, IELTS, SAT, GRE, GMAT).</p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px">Firma y sello de documentos académicos (envío de un juego sellado incluido).</p>
+                                       <li >
+                                          <p >Firma y sello de documentos académicos (envío de un juego sellado incluido).</p>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
-                                          <p style="margin-bottom: 0px"> <strong> Procesos de aplicación para visa de estudiante:</strong></p>
+                                       <li >
+                                          <p > <strong> Procesos de aplicación para visa de estudiante:</strong></p>
+                                          <ul>
+                                             <li>
+                                                <p >  Revisión de documentos.</p>
+                                             </li>
+                                             <li>
+                                                <p >  Preparación para la entrevista.</p>
+                                             </li>
+                                          </ul>
                                        </li>
-                                       <li class="list-group-item" style="margin-left: 110px;border: none">
-                                          <p style="margin-bottom: 0px">  Revisión de documentos.</p>
-                                       </li>
-                                       <li class="list-group-item" style="margin-left: 110px;border: none">
-                                          <p style="margin-bottom: 0px">  Preparación para la entrevista.</p>
-                                       </li>
-                                       <li class="list-group-item" style="margin-left: 55px;border: none">
+
+                                       <li >
                                           <p>  Acompañamiento pre-partida.</p>
                                        </li>
                                     </ul>
-                                    <p>  <strong>*Estos montos incluyen IVA y deben ser cancelados a través de transferencia o depósito bancario 48 horas hábiles antes de concertar la cita. Una vez efectuado por favor notificar.</strong> </p>
                                  </div>
                               </div>
                            </div>
@@ -188,8 +192,8 @@
                                  </h4>
                               </div>
                               <div id="collapse1" class="panel-collapse in collapse" role="tabpanel" aria-labelledby="heading1">
-                                 <div class="panel-body">
-                                    <table class="table table-responsive table-hover">
+                                 <div class="panel-body table-responsive">
+                                    <table class="table table-hover">
                                        <thead class="thead-inverse">
                                           <tr>
                                              <th>Canada</th>
@@ -267,7 +271,7 @@
                                  </h4>
                               </div>
                               <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
-                                 <div class="panel-body">
+                                 <div align="justify" class="panel-body">
                                     <p> Como parte de las actividades que se llevan a cabo desde el Centro de Asesorías Educativas, AVAA organiza la Feria Expo-Estudiante de la mano con <a  target="_blank" href="http://www.bmimedia.net/new/default.php">Business Marketing International (BMI)</a>. En esta feria participan diversas universidades e instituciones de todo el mundo que, de manera directa, ofrecen a los asistentes sus propuestas educativas.</p>
                                  </div>
                               </div>
@@ -309,55 +313,55 @@
                            <!-- Tab panes -->
                            <div class="tab-content">
                               <div  align="justify" class="tab-pane fade show active" id="business" role="tabpanel">
-                                 <br/>
                                  <ul class="list-group">
                                     <li class="list-group-item">
+                                       <br/>
                                        <p> El Programa Excelencia AVAA promueve la educación y formación integral de jóvenes venezolanos de medianos o bajos recursos económicos durante los cinco años de carrera universitaria.</p>
                                        <p>Además de apoyar a los estudiantes beneficiarios a completar su carrera con los más altos índices académicos, ProExcelencia AVAA desarrolla una serie de componentes que permiten formarlos con valores asociados al progreso, con capacidades profesionales y personales.</p>
                                        <p>Actualmente, el programa tiene a 250 beneficiarios de alto índice académico, vocación social y potencial de liderazgo; todos cursantes de carreras de 5 años en universidades públicas o privadas en la Gran Caracas.</p>
                                     </li>
                                  </ul>
                               </div>
-                              <div class="tab-pane fade" id="startup" role="tabpanel" >
-                                 <br/>
-                                 <ul class="list-group">
-                                    <li class="list-group-item">
-                                       <p >Aporte económico mensual.</p>
-                                       <ul class="list-group">
-                                          <p style="margin-bottom: 3px"><strong>Formación en inglés: </strong></p>
-                                          <li class="list-group-item" style="margin-left: 55px;border: none">
-                                             <p style="margin-bottom: 0px">Apoyo de un mentor, con mínimo 10 años de experiencia profesional, como modelo de vida y guía profesional.</p>
-                                          </li>
-                                          <li class="list-group-item" style="margin-left: 55px;border: none">
-                                             <p style="margin-bottom: 0px">Curso completo de inglés en el Centro Venezolano Americano.</p>
-                                          </li>
-                                          <li class="list-group-item" style="margin-left: 55px;border: none">
-                                             <p style="margin-bottom: 0px">Participación en el programa Práctica de Conversación en Inglés. </p>
-                                          </li>
-                                          <li class="list-group-item" style="margin-left: 55px;border: none">
-                                             <p >Oportunidad de ganar una beca de inglés en USA o Canadá para los becarios con el rendimiento más destacado.</p>
-                                          </li>
+                              <div class="contenidoDeList tab-pane fade" id="startup" role="tabpanel" >
+                                 <li class="list-group-item">
+                                    <br/>
+                                 <ul>
+                                       <li><p >Aporte económico mensual.</p></li>
+                                    <li>  <p><strong>Formación en inglés: </strong></p>
+                                       <ul>
+                                           <li>      <p >Apoyo de un mentor, con mínimo 10 años de experiencia profesional, como modelo de vida y guía profesional.</p></li>
+
+                                           <li>     <p >Curso completo de inglés en el Centro Venezolano Americano.</p></li>
+
+                                          <li>      <p >Participación en el programa Práctica de Conversación en Inglés. </p></li>
+
+                                           <li>       <p >Oportunidad de ganar una beca de inglés en USA o Canadá para los becarios con el rendimiento más destacado.</p></li>
                                        </ul>
-                                       <p>Formación en áreas extracurriculares y competencias organizacionales.</p>
-                                       <p>Refuerzo de consciencia social y ciudadana con la participación en actividades de voluntariado. </p>
                                     </li>
+
+
+                                    <li>  <p>Formación en áreas extracurriculares y competencias organizacionales.</p></li>
+                                    <li>  <p>Refuerzo de consciencia social y ciudadana con la participación en actividades de voluntariado. </p></li>
                                  </ul>
+                                 </li>
+
                               </div>
-                              <div  class="tab-pane fade" id="agency" role="tabpanel">
-                                 <br/>
+                              <div  class="contenidoDeList tab-pane fade" id="agency" role="tabpanel">
+                                 <li class="list-group-item">
+                                    <br/>
                                  <ul class="list-group">
-                                    <li class="list-group-item">
-                                       <p>Ser Venezolano.</p>
-                                       <p >Ser estudiante universitario y estar máximo iniciando segundo año de estudio, quienes cursen carreras de 5 años.</p>
-                                       <p >Haber culminado al menos el primer periodo académico universitario y consignar la constancia de notas del mismo.</p>
-                                       <p >Poseer promedio de calificaciones igual o superior a 16 puntos en la escala de 20.</p>
-                                       <p >Comprometerse a estudiar el idioma inglés en el Centro Venezolano Americano o en otra institución de idiomas que determine la Asociación.</p>
-                                       <p>Tener una conducta intachable.</p>
-                                       <p>Mostrar dotes de liderazgo y espíritu comunitario.</p>
-                                       <p>Estar dispuesto a participar en las actividades educativas, culturales y deportivas de AVAA. </p>
-                                       <p>Demostrar necesidad de ayuda económica. </p>
-                                    </li>
+                                    <li> <p>Ser Venezolano.</p></li>
+                                    <li><p >Ser estudiante universitario y estar máximo iniciando segundo año de estudio, quienes cursen carreras de 5 años.</p></li>
+                                    <li> <p >Haber culminado al menos el primer periodo académico universitario y consignar la constancia de notas del mismo.</p></li>
+                                    <li> <p >Poseer promedio de calificaciones igual o superior a 16 puntos en la escala de 20.</p></li>
+                                    <li> <p >Comprometerse a estudiar el idioma inglés en el Centro Venezolano Americano o en otra institución de idiomas que determine la Asociación.</p></li>
+                                    <li> <p>Tener una conducta intachable.</p></li>
+                                    <li>  <p>Mostrar dotes de liderazgo y espíritu comunitario.</p></li>
+                                    <li> <p>Estar dispuesto a participar en las actividades educativas, culturales y deportivas de AVAA. </p></li>
+                                    <li>  <p>Demostrar necesidad de ayuda económica. </p></li>
+
                                  </ul>
+                                 </li>
                               </div>
                            </div>
                         </div>

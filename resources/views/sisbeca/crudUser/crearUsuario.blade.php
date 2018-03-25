@@ -43,7 +43,8 @@
                             <input class="form-control" required name="password" type="password" id="password">
                         </div>
 
-                        <div class="form-group">
+                        <div align="center" class="form-group">
+                            <button onclick="Regresar()" class="btn btn-default" type="button" >Cancelar</button>&nbsp;&nbsp;
 
                             <input class="btn btn-primary" type="submit" value="Guardar">
                         </div>
@@ -54,4 +55,17 @@
         </div>
     </div>
 @endsection
-          
+
+@section('personaljs')
+    <script type="text/javascript">
+
+        function Regresar() {
+
+            var route= "{{route('mantenimientoUser.index')}}";
+
+
+            location.assign(route);
+
+        }
+    </script>
+@endsection

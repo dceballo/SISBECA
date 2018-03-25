@@ -38,7 +38,7 @@ ul.wysihtml5-toolbar a.btn{
 	color: inherit;
 }
 ul.wysihtml5-toolbar a:hover.btn{
-	color: #333;
+	color: black !important;
 }
 
 ul.wysihtml5-toolbar a[data-wysihtml5-command=bold] {
@@ -57,7 +57,7 @@ ul.wysihtml5-toolbar a.btn.wysihtml5-command-active {
 	background-image: none;
 	background: #f6f6f6;
 	box-shadow: none;
-	color: #333;
+	color: black !important;
 	outline: 0;
 }
 
@@ -73,6 +73,7 @@ ul.wysihtml5-toolbar .fa{
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	border-top: none;
+	color: black !important;
 }
 .wysihtml5-textarea:focus{
 	border-top: none;

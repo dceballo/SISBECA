@@ -15,6 +15,7 @@
     <title>Avaa - Panel de Administración</title>
 
     @include('sisbeca.layouts.filescss')
+    @yield('personalcss')
 
 </head>
 
@@ -54,7 +55,10 @@
             </div>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
+
             <div class="container-fluid">
+            @include('flash::message')
+
                 <!-- Start Page Content -->
                 
                @yield('content')

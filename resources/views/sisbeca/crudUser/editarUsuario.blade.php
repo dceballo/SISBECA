@@ -36,7 +36,7 @@
                                 @endif
 
                                 @if($user->rol=='editor')
-                                    <option selected value='edit'>Coordinador Educativo</option>
+                                    <option selected value='editor'>Coordinador Educativo</option>
                                 @else
                                     <option value='editor'>Coordinador Educativo</option>
                                 @endif
@@ -62,7 +62,9 @@
                             <input class="form-control" required name="password" type="password" id="password">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" align="center">
+                            <button onclick="Regresar()" class="btn btn-default" type="button" >Cancelar</button>&nbsp;&nbsp;
+
                             <input class="btn btn-primary" type="submit" value="Guardar">
                         </div>
 
@@ -74,5 +76,23 @@
             </div>
         </div>
     </div>
+
+
 @endsection
+
+@section('personaljs')
+<script type="text/javascript">
+
+    function Regresar() {
+
+        var route= "{{route('mantenimientoUser.index')}}";
+
+
+        location.assign(route);
+
+    }
+</script>
+@endsection
+
+
           

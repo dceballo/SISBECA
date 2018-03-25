@@ -9,7 +9,7 @@
 
                 {{--Inicio de Vistas del Administrador--}}
                 @if(Auth::user()->admin())
-                <li class="nav-label">Inicio(Vta Administrador)</li>
+                <li class="nav-label">Inicio</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Usuarios</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="{{asset(route('mantenimientoUser.index'))}}">Mantenimiento</a></li>
@@ -18,44 +18,59 @@
                 @endif
                 {{--Fin de Vistas del Administrador--}}
 
-                {{--Inicio de Vistas del Postulante--}}
-                <li class="nav-label">Inicio(Vta Postulante)</li>
+                {{--Inicio de Vistas del Postulante a Becario--}}
+                @if(Auth::user()->rol==='postulante_becario')
+                <li class="nav-label">Inicio</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Postulación<span class="label label-rouded label-primary pull-right">2</span></span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Ver Postulación</a></li>
                         <li><a href="#">Ver Fecha Entrevista</a></li>
                     </ul>
                 </li>
-                {{--Fin de Vistas del Postulante--}}
+                @endif
+                {{--Fin de Vistas del Postulante a Becario--}}
 
 
-                {{--Inicio de Vistas del Mentor--}}
-                <li class="nav-label">Inicio(Vta Mentores)</li>
+                {{--Inicio de Vistas del Postulante a Mentor--}}
+                @if(Auth::user()->rol==='postulante_mentor')
+                <li class="nav-label">Inicio</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Postulación</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Ver Postulación</a></li>
+                    </ul>
+                </li>
+                @endif
+                {{--Fin de Vistas del Postulante a Mentor--}}
+
+
+                {{--Inicio de Vistas del  Mentor--}}
+                @if(Auth::user()->rol==='mentor')
+                <li class="nav-label">Inicio</li>
+                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Opciones</span></a>
+                    <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Ver Becarios asignados</a></li>
                     </ul>
                 </li>
-                {{--Fin de Vistas del Postulante--}}
+                @endif
+                {{--Fin de Vistas del Mentor--}}
 
                 {{--Inicio de Vistas del Coordinador Educativo es decir el Editor--}}
                 @if(Auth::user()->rol==='editor')
-                <li class="nav-label">Inicio(Vta Editor)</li>
-                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-list-alt"></i><span class="hide-menu">Noticias</span></a>
+                <li class="nav-label">Inicio</li>
+                <li> <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-list-alt"></i><span class="hide-menu">Articulos</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="{{route('mantenimientoNoticia.index')}}">Mantenimiento</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-label">Gestion de Cronogramas(Vista Editor)</li>
-                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Talleres y Voluntareados</span></a>
+                <li class="nav-label">Gestion de Cronogramas</li>
+                <li> <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Talleres y Voluntareados</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Talleres</a></li>
                         <li><a href="#">Voluntareados</a></li>
                     </ul>
                 </li>
-                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Cursos y ChatClubs</span></a>
+                <li> <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Cursos y ChatClubs</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">CVA</a></li>
                         <li><a href="#">ChatClubs</a></li>
@@ -65,7 +80,8 @@
                 {{--Fin de Vistas del Coordinador Educativo es decir el Editor--}}
 
                 {{--Inicio de Vistas del Directivo Unicamente--}}
-                <li class="nav-label">Inicio(Vta. Direct.)</li>
+                @if(Auth::user()->rol==='directivo')
+                <li class="nav-label">Inicio</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Postulación a Becarios</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Ver Postulantes</a></li>
@@ -87,7 +103,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-label">Gestion de Nominas(Vista Dvo)</li>
+                <li class="nav-label">Gestion de Nominas</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Nomina</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Generar Nomina</a></li>
@@ -95,13 +111,13 @@
                         <li><a href="#">Cambiar Status de Nomina</a></li>
                     </ul>
                 </li>
-
-
+                @endif
                 {{--Fin de Vistas del Directivo unicamente--}}
 
 
                 {{--Inicio de Vistas del Coordinador--}}
-                <li class="nav-label">Inicio (V. Coord)</li>
+                @if(Auth::user()->rol==='coordinador')
+                <li class="nav-label">Inicio</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Seguimientos</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">CVA</a></li>
@@ -112,17 +128,19 @@
 
                     </ul>
                 </li>
-                <li class="nav-label">Gestion de Solicitudes (Vta Coord.)</li>
+                <li class="nav-label">Gestion de Solicitudes </li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Revisar Solicitudes</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Desincorporación</a></li>
                         <li><a href="#">Reincorporación</a></li>
                     </ul>
                 </li>
+                @endif
                 {{--Fin de Vistas del Coordinador--}}
 
                 {{--Inicio de Vista Compartida Coordinador/Directivo --}}
-                <li class="nav-label">Consultas y Reportes(V. Coord. y Direct.)</li>
+                @if((Auth::user()->rol==='coordinador') || (Auth::user()->rol==='directivo'))
+                <li class="nav-label">Consultas y Reportes</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Becarios</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Listado</a></li>
@@ -142,19 +160,21 @@
                         <li><a href="#">Inactivos</a></li>
                     </ul>
                 </li>
+                @endif
                 {{--Fin d Vista Compartida Coordinador/Directivo --}}
 
 
 
                 {{--Inicio de Vista de Becarios Unicamente--}}
-                <li class="nav-label">Inicio(Vista Becarios)</li>
+                @if(Auth::user()->rol==='becario')
+                <li class="nav-label">Inicio</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Cuenta Bancaria</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Ver o Cargar</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-label">Control de Estudios(Vista Becarios)</li>
+                <li class="nav-label">Control de Estudios</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">CVA</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Cargar Registro</a></li>
@@ -186,7 +206,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-label">Opciones(Vista Becarios)</li>
+                <li class="nav-label">Opciones</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Consultas y Reportes</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Consultar Voluntariados</a></li>
@@ -195,16 +215,19 @@
                         <li><a href="#">Ver Mentor Asignado</a></li>
                     </ul>
                 </li>
+                @endif
                 {{--Fin de Vista de Becarios Unicamente--}}
 
                 {{--Inicio de Vista Compartida Becarios/Mentores--}}
-                <li class="nav-label">Solicitudes(Vista Becarios-Mentores)</li>
+                @if((Auth::user()->rol==='mentor')|| (Auth::user()->rol==='becario'))
+                <li class="nav-label">Solicitudes</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Solicitud</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Desincorporación</a></li>
                         <li><a href="#">Reincorporación</a></li>
                     </ul>
                 </li>
+                @endif
                 {{-- Fin de Vista Compartida Becarios/Mentores--}}
 
             </ul>
