@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('info_sitio/img/favicon.png')}}" >
     <title>Avaa - Panel de Administración</title>
 
-    @include('sisbeca.layouts.filescss')
+    @include('sisbeca.layouts.partials.filescss')
     @yield('personalcss')
 
 </head>
@@ -29,10 +29,10 @@
     <div id="main-wrapper">
         <!-- header header  -->
         <div class="header">
-            @include('sisbeca.layouts.navtop')
+            @include('sisbeca.layouts.partials.navtop')
         </div>
         <!-- End header header -->
-        @include('sisbeca.layouts.menu-lateral')
+        @include('sisbeca.layouts.partials.menu-lateral')
         
         <!-- End Left Sidebar  -->
         <!-- Page wrapper  -->
@@ -57,7 +57,9 @@
             <!-- Container fluid  -->
 
             <div class="container-fluid">
+            @include('sisbeca.layouts.partials.errors')
             @include('flash::message')
+
 
                 <!-- Start Page Content -->
                 
@@ -75,7 +77,7 @@
     </div>
     <!-- End Wrapper -->
 
-   @include('sisbeca.layouts.filesjs')
+   @include('sisbeca.layouts.partials.filesjs')
 
    @yield('editorjs')
    @yield('formvalidationjs')

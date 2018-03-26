@@ -178,6 +178,7 @@ return [
         avaa\Providers\RouteServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -229,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Flash' => Laracasts\Flash\Flash::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

@@ -9,6 +9,9 @@ use Redirect;
 use Yajra\Datatables\Datatables;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
+use avaa\Http\Requests\UserRequest;
+use Validator;
+use Illuminate\Validation\Rule;
 
 class MantenimientoUserController extends Controller
 {
@@ -66,26 +69,13 @@ class MantenimientoUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         //
         //para guardar esos datos del formulario de creacion
         $rol=$request->rol;
 
-        //este condicional me gestionara si existen en la tabla usuarios con rol de editor o directivo, ya que coordinadores si puede existir varios
-        if($rol==='coordinador') {
-            $reg=null;
-        }
-        else {
-            $reg = User::query()->where('rol', '=', "$rol")->first(); //se busca en la tabla usuario a ver si ya existe el rol
-        }
-
-        if(is_null($reg))
-        {
             $user = new User($request->all());
-
-            //los errores de validación se crean de manera muy facil ya que la vista maneja una variable errors
-
             $user->password = bcrypt($request->password);
             $user->save();
 
@@ -121,12 +111,6 @@ class MantenimientoUserController extends Controller
             }
             return redirect()->route('mantenimientoUser.index');
 
-        }
-        else {
-
-            flash('No puedes crear un usuario con rol '.$request->rol.' porque ya existe')->error()->important();
-            return back();
-        }
 
     }
 
@@ -169,7 +153,7 @@ class MantenimientoUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         //encargado de recibir los datos que mandemos del usuario que indiquemos en edit y poder actualizarlo
         $user = User::find($id);
@@ -177,16 +161,33 @@ class MantenimientoUserController extends Controller
         $rolNuevo=$request->rol;
         $rolViejo=$user->rol;
 
+        //los errores de validación  personales para el email y cedula
+        Validator::make($request->all(), [
+            'email' => [
+                Rule::unique('users')->ignore($user->id),
+            ],
+            'cedula' => [
+                Rule::unique('users')->ignore($user->id),
+            ],
+        ])->validate();
+
         //este condicional me gestionara si existen en la tabla usuarios con rol de editor o directivo, ya que coordinadores si puede existir varios
         if($rolNuevo===$user->rol || $rolNuevo==='coordinador') {
-            $reg=null;
+
+            //
         }
         else {
 
-            $reg = User::query()->where('rol', '=', "$rolNuevo")->first(); //se busca en la tabla usuario a ver si ya existe el rol
+            //errores personales para el rol
+            Validator::make($request->all(), [
+                'rol' => [
+                    Rule::unique('users')->ignore($user->id),
+                ],
+            ])->validate();
+
+
         }
 
-        if(is_null($reg)) {
 
             $user->fill($request->all());
             $user->password = bcrypt($request->password);
@@ -235,11 +236,7 @@ class MantenimientoUserController extends Controller
                    }
                 }
             }
-        }
-        else{
-            flash('No puedes cambiar de rol '.strtoupper($rolViejo).' porque ya existe el rol '.strtoupper($rolNuevo))->error()->important();
 
-        }
 
         return  redirect()->route('mantenimientoUser.index');
     }
@@ -259,6 +256,13 @@ class MantenimientoUserController extends Controller
         {
             flash('El Archivo solicitado no ha sido encontrado')->error()->important();
             return back();
+        }
+        else{
+            if($user->rol==='admin')
+            {
+                flash('El Archivo solicitado no ha sido encontrado')->error()->important();
+                return back();
+            }
         }
 
         if($user->delete()) {

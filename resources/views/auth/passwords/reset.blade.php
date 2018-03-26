@@ -16,7 +16,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('info_sitio/img/favicon.png')}}" >
     <title>Avaa - Recuperación de Contraseña</title>
 
-    @include('sisbeca.layouts.filescss')
+    @include('sisbeca.layouts.partials.filescss')
 </head>
 
 <body class="fix-header fix-sidebar">
@@ -28,7 +28,7 @@
 <!-- Main wrapper  -->
 <div id="main-wrapper">
     <div class="header">
-        @include('sisbeca.layouts.navtop')
+        @include('sisbeca.layouts.partials.navtop')
     </div>
 
     <div class="unix-login">
@@ -103,7 +103,7 @@
 <!-- End Wrapper -->
 <!-- All Jquery -->
 
-@include('sisbeca.layouts.filesjs')
+@include('sisbeca.layouts.partials.filesjs')
 
 </body>
 

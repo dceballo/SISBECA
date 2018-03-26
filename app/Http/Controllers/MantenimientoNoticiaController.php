@@ -9,6 +9,9 @@ use avaa\Http\Controllers\Controller;
 use Redirect;
 use Yajra\Datatables\Datatables;
 use Laracasts\Flash\Flash;
+use avaa\Http\Requests\NoticiaRequest;
+use Validator;
+use Illuminate\Validation\Rule;
 
 class MantenimientoNoticiaController extends Controller
 {
@@ -56,15 +59,14 @@ class MantenimientoNoticiaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NoticiaRequest $request)
     {
         //Manipulación de Archivos
 
         //hay que crearle un nombre unico a la imagen que se guardara en el campo
-        $file= $request->file('image');
+        $file= $request->file('url_imagen');
 
 
-        if(!is_null($file)) {
             //getClientOriginalExtension para conocer la extension
             $name = 'noticiasAVAA_' . time() . '.' . $file->getClientOriginalExtension();
             //la ruta donde queremos guardar esta imagenes
@@ -91,11 +93,6 @@ class MantenimientoNoticiaController extends Controller
             {
                 flash('Ha ocurrido un error al registrar el articulo')->error()->important();
             }
-
-
-        }else{
-            flash('Debe Ingresar una imagen para registrar el articulo')->error()->important();
-        }
 
 
         return redirect()->route('mantenimientoNoticia.index');
@@ -141,14 +138,25 @@ class MantenimientoNoticiaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NoticiaRequest $request, $id)
     {
         //
         $noticia = Noticia::find($id);
-        $file= $request->file('image');
+        $file= $request->file('url_imagen');
 
 
-        if(!is_null($file)) {
+        if($request->tipo==='articulo') {
+
+            Validator::make($request->all(), [
+                'url_articulo' => 'required|url',
+                'email_contacto' => [
+                    Rule::unique('noticias')->ignore($noticia->id),
+                ],
+                'email_contacto' => 'nullable|email|max:30',
+
+            ])->validate();
+        }
+
             //se borra la imagen anterior del servidor
             unlink(public_path() .$noticia->url_imagen);
             //getClientOriginalExtension para conocer la extension
@@ -179,12 +187,6 @@ class MantenimientoNoticiaController extends Controller
                 flash('Ha ocurrido un error al actualizar el articulo')->error()->important();
             }
 
-
-        }
-        else
-        {
-            flash('Debe Ingresar una imagen para la actualización del articulo')->error()->important();
-        }
 
     return  redirect()->route('mantenimientoNoticia.index');
 

@@ -8072,7 +8072,7 @@ wysihtml5.views.View = Base.extend(
         "background-color",
         "color", "cursor",
         "font-family", "font-size", "font-style", "font-variant", "font-weight",
-        "line-height", "letter-spacing",
+        "letter-spacing",
         "text-align", "text-decoration", "text-indent", "text-rendering",
         "word-break", "word-wrap", "word-spacing"
       ],
@@ -8109,7 +8109,7 @@ wysihtml5.views.View = Base.extend(
       ],
       ADDITIONAL_CSS_RULES = [
         "html             { height: 100%; }",
-        "body             { min-height: 100%; padding: 0; color:black !important;margin: 0; margin-top: -1px; padding-top: 1px; }",
+        "body             { min-height: 100%; padding: 0; color:black !important;margin: 0; margin-top: -1px; padding-top: 10px;line-height: 25px; }",
         "._wysihtml5-temp { display: none; }",
         wysihtml5.browser.isGecko ?
           "body.placeholder { color: graytext !important; }" : 

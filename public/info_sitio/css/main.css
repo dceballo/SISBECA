@@ -97,6 +97,16 @@ ul li {
   list-style: disc !important;
 }
 
+.contenidoDeList{
+
+  margin-top: 5px;
+  word-break: break-all;
+}
+p.contenido{
+  word-break: break-all;
+}
+
+
 a:hover,
 a:focus {
   text-decoration: none;

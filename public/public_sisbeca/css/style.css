@@ -297,9 +297,6 @@ h6 {
 .text-purple {
   color: #7460ee;
 }
-.text-primary {
-  color: #5c4ac7;
-}
 .text-megna {
   color: #00897b;
 }
@@ -832,11 +829,17 @@ h6.h1 {
     opacity: 0.0;
   }
 }
+
+.opcion-menu-oculta{
+  visibility: hidden;display: none
+
+}
 /*    Color Mixins
 -------------------*/
 .color-primary,
 .text-primary {
-  color: #4680ff;
+  color: rgb(25, 118, 210)  !important;
+  font-weight: bold !important;
 }
 .color-success,
 .text-success {
@@ -1552,6 +1555,10 @@ textarea {
 }
 .fix-sidebar .left-sidebar {
   position: fixed;
+  background: -webkit-linear-gradient(left top, rgba(61, 145, 214, 0.03), rgba(61, 145, 214, 0.07)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right,rgba(61, 145, 214, 0.03) , rgba(61, 145, 214, 0.07)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(61, 145, 214, 0.03) ,rgba(61, 145, 214, 0.07)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, rgba(61, 145, 214, 0.03) , rgba(61, 145, 214, 0.07)); /* Standard syntax */
 }
 .sidebar-footer {
   position: fixed;
@@ -1580,7 +1587,6 @@ textarea {
   display: block;
 }
 .sidebar-nav {
-  background: #fff;
   padding: 0;
 }
 .sidebar-nav ul {
@@ -1934,7 +1940,10 @@ textarea {
   margin-bottom: 0;
 }
 .page-titles {
-  background: #ffffff;
+  background: -webkit-linear-gradient(left top, rgba(61, 145, 214, 0.03), rgba(61, 145, 214, 0.07)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right,rgba(61, 145, 214, 0.03) , rgba(61, 145, 214, 0.07)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(61, 145, 214, 0.03) ,rgba(61, 145, 214, 0.07)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, rgba(61, 145, 214, 0.03) , rgba(61, 145, 214, 0.07)); /* Standard syntax */
   margin: 0 0 30px;
   padding: 15px 10px;
   position: relative;

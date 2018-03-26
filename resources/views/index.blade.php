@@ -1,12 +1,12 @@
 ﻿@extends('web_site.layouts.main')
-@section('title','Home')
+@section('title','Inicio')
 @section('content')
       <!-- Inicio de Seccion Principal -->
       <section id="seccionPrincipal" class="section" data-stellar-background-ratio="0.2">
          <br/><br/><br/>
          <div class="container">
             <div class="section-header">
-               <h2 class="section-title">Home</h2>
+               <h2 class="section-title">Inicio</h2>
                <hr class="lines">
                <p class="section-subtitle">La Asociación Venezolano Americana de Amistad es una organización no gubernamental fundada en 1942. Desde su fundación ha promovido actividades orientadas a reforzar los lazos de muchos años de amistad entre los pueblos de Venezuela, Canadá y Estados Unidos.</p>
                <p class="section-subtitle">

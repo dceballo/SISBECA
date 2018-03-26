@@ -71,7 +71,7 @@
                     <div class="form-group">
                         <label for="image">Seleccione imagen de Noticia/Articulo</label>
                         <div>
-                               <input required name="image" type="file" id="image">
+                               <input required name="url_imagen" accept="image/*" type="file" id="url_imagen">
                         </div>
                     </div>
 
@@ -199,7 +199,7 @@
     @endsection
 
 @section('editorjs')
-    @include('sisbeca.layouts.editorjs')
+    @include('sisbeca.layouts.partials.editorjs')
 
 
 

@@ -2,7 +2,7 @@
             <div class="container">
                <!-- Brand and toggle get grouped for better mobile display -->
                <div class="navbar-header">
-                  <span class="navbar-brand"><img class="img-fulid" src="{{asset('info_sitio/img/logo2.png')}}" alt=""></span>
+                  <span class="navbar-brand"><a href="{{asset('/')}}"><img class="img-fulid" src="{{asset('info_sitio/img/logo2.png')}}" alt=""></a></span>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
                   <i class="lnr lnr-menu"></i>
                   </button>
@@ -11,9 +11,9 @@
                   <ul class="navbar-nav mr-auto w-100 justify-content-end" >
                      <li class="nav-item nivel1">
                      @if($route=='home')
-                        <a class="nav-link page-scroll active" href="#hero-area">Home</a>
+                        <a class="nav-link page-scroll active" href="#hero-area">Inicio</a>
                      @else
-                      <a class="nav-link" href="{{asset('/')}}">Home</a>
+                      <a class="nav-link" href="{{asset('/')}}">Inicio</a>
                      @endif
 
                      </li>
@@ -144,9 +144,9 @@
             <ul class="mobile-menu">
                <li>
                  @if($route=="home")
-                  <a class="page-scroll active" href="#hero-area">Home</a>
+                  <a class="page-scroll active" href="#hero-area">Inicio</a>
                   @else
-                  <a href="{{asset('/')}}">Home</a>
+                  <a href="{{asset('/')}}">Inicio</a>
                   @endif
                </li>
                <li class="dropdown">
