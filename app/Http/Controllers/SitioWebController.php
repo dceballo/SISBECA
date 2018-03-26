@@ -38,7 +38,6 @@ class SitioWebController extends Controller
         // Eliminar una noticia
 
         $noticia= Noticia::find($id);
-;
         if(is_null($noticia))
         {
             abort('404','Archivo no encontrado');
