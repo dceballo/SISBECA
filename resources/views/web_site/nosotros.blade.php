@@ -110,7 +110,7 @@
                <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix design print">
                   <div class="portfolio-item">
                      <div class="shot-item">
-                        <img src="{{asset('info_sitio/img/team/estructuraorganizativa.png')}}" alt="Estructura Organizativa" />  
+                        <img src="{{asset('info_sitio/img/team/estructuraorganizativa.png')}}" alt="Estructura Organizativa" />
                         <a class="overlay lightbox" href="{{asset('info_sitio/img/team/estructuraorganizativa.png')}}">
                         <i class="lnr lnr-eye item-icon"></i>
                         </a>

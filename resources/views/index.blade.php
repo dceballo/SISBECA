@@ -1,12 +1,12 @@
 ﻿@extends('web_site.layouts.main')
-@section('title','Home')
+@section('title','Inicio')
 @section('content')
       <!-- Inicio de Seccion Principal -->
       <section id="seccionPrincipal" class="section" data-stellar-background-ratio="0.2">
          <br/><br/><br/>
          <div class="container">
             <div class="section-header">
-               <h2 class="section-title">Home</h2>
+               <h2 class="section-title">Inicio</h2>
                <hr class="lines">
                <p class="section-subtitle">La Asociación Venezolano Americana de Amistad es una organización no gubernamental fundada en 1942. Desde su fundación ha promovido actividades orientadas a reforzar los lazos de muchos años de amistad entre los pueblos de Venezuela, Canadá y Estados Unidos.</p>
                <p class="section-subtitle">
@@ -99,13 +99,16 @@
                                                    <div id="noticias" class="noticias-item">
                                                       <!--testimonial-item-->
                                                       <div class="noticias-text">
-                                                         <img src="{{asset($noticias->get($i)['url_imagen'])}}" alt="Noticia {{$i+1}}" />
-                                                         <h3>{{$noticias->get($i)['titulo']}}</h3>
-                                                         <p style="text-align:justify;">
-                                                            {{$noticias->get($i)['contenido']}}
+                                                         <img class="img-responsive"  src="{{asset($noticias->get($i)['url_imagen'])}}" title="{{$noticias->get($i)['titulo']}}" alt="{{$noticias->get($i)['titulo']}}" />
+                                                         <p class="title-noticia">{{$noticias->get($i)['titulo']}}</p>
+                                                         <p class="contenido" style="text-align:justify;">
+                                                            {{substr(strip_tags($noticias->get($i)['contenido']), 0, 250).'...'}}
                                                          </p>
-                                                         <a href="" class="btn btn-primary noticiasboton">Mas informacion</a>
-                                                         <br/><br/>
+                                                         <div class="plan-button">
+                                                         <a href="{{route('showNoti',$noticias->get($i)['id'])}}" title="Mas Información" class="btn btn-common"><i class="fa fa-plus"></i> <span class="mas-informacion">Mas Información</span></a>
+                                                         </div>
+                                                         <br/>
+
                                                       </div>
                                                    </div>
                                                 </div>
@@ -123,11 +126,11 @@
                                  </div>
                                  <a class="carousel-control-prev" href="#carouselNoticiasIndicadores" role="button" data-slide="prev">
                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                 <span class="sr-only">Previous</span>
+                                 <span class="sr-only">Anterior</span>
                                  </a>
                                  <a class="carousel-control-next" href="#carouselNoticiasIndicadores" role="button" data-slide="next">
                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                 <span class="sr-only">Next</span>
+                                 <span class="sr-only">Siguiente</span>
                                  </a>
                               </div>
                            </div>
@@ -167,130 +170,24 @@
                <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">En esta sección se listaran las entes institucionales de la AVAA.</p>
             </div>
 
-            @if($cantM != 0)
+            @if($cantM > 0)
             <div align="center" class="section" data-stellar-background-ratio="0.1">
                <br/><br/>
                <div class="container" >
                   <div class="row justify-content-md-center">
                      <div class="col-md-12">
                         <div class="touch-slider owl-carousel owl-theme">
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>COLUMBIA WEST</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/logocolumbia.jpg')}}" alt="COLUMBIA WEST" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>SIENA</h5>
-                                 <img class="img-fluid" width="200" height="200"   src="{{asset('info_sitio/img/org/siena.png')}}" alt="SIENA" />
-                              </a>
-                           </div>
-			 
 
+                           @foreach($miembros as $miembro)
                            <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>W&J COLLEGE</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/wjcollege.png')}}" alt="W&J COLLEGE" />
+                              <a href="{{route('showNoti',$miembro->id)}}">
+                                 <p class="title-miembros-institucionales">{{$miembro->titulo}}</p>
+                                 <img class="img-fluid img-responsive"   src="{{asset($miembro->url_imagen)}}" alt="{{$miembro->titulo}}" />
                               </a>
                            </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>GUARD.ME</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/logoguardme.jpg')}}" alt="GUARD.ME" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>UOIT</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/uoit.jpg')}}" alt="UOIT" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>SONOMA</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/sonoma.png')}}" alt="SONOMA" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>SELNATE</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/selnateint.png')}}" alt="SELNATE" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>UA</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/alabama.png')}}" alt="UA" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>KAPLAN</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/kaplan.png')}}" alt="KAPLAN" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>UMC</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/umc.jpg')}}" alt="UMC" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>ROUNDTRIP</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/LogoRoundtripEducation.jpg')}}" alt="ROUNDTRIP" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>KING'S COLLEGE</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/KingsCollege.jpg')}}" alt="KING'S COLLEGE" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>ILAC </h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/LogoILAC.jpg')}}" alt="ILAC" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>EF</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/ef.jpg')}}" alt="EF" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>ACCESS</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/access.jpg')}}" alt="ACCESS" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>SGIC</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/saintgeorge.png')}}" alt="SGIC" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>ELS</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/els.jpg')}}" alt="ELS" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>SEGUNDO IDIOMA</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/logosegundoidioma.jpg')}}" alt="SEGUNDO IDIOMA" />
-                              </a>
-                           </div>
-                           <div class="client-logo item col-lg-12 col-sm-12 col-xs-6">
-                              <a href="#">
-                                 <h5>GEORGIA TECH</h5>
-                                 <img class="img-fluid" width="200" height="200"  src="{{asset('info_sitio/img/org/georgiatech.png')}}" alt="GEORGIA TECH" />
-                              </a>
-                           </div>
+                              @endforeach
                         </div>
+
                      </div>
                   </div>
                </div>
@@ -336,7 +233,7 @@
                <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="pricing-table">
                      <div class="pricing-details">
-                        <h2>PROEXCELENCIA AVAA</h2>
+                        <h2 class="title-miembros-institucionales">PROEXCELENCIA AVAA</h2>
                         <span><img src="{{asset('info_sitio/img/testimonial/proexcelencia.jpg')}}" alt="ProExcelencia AVAA" /></span>
                         <ul>
                            <li>
@@ -345,14 +242,14 @@
                         </ul>
                      </div>
                      <div class="plan-button">
-                        <a href="{{asset(route('programas'))}}#ProExcelencia" class="btn btn-common">+Información</a>
+                        <a href="{{asset(route('programas'))}}#ProExcelencia" title="Mas Información" class="btn btn-common"><i class="fa fa-plus"></i> <span class="mas-informacion">Mas Información</span></a>
                      </div>
                   </div>
                </div>
                <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="pricing-table">
                      <div class="pricing-details">
-                        <h2>AVAA INC</h2>
+                        <h2 class="title-miembros-institucionales">AVAA INC</h2>
                         <span><img src="{{asset('info_sitio/img/testimonial/avaainc.jpg')}}" alt="Avaa Internacional" /></span>
                         <ul>
                            <li>
@@ -368,7 +265,7 @@
                <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="pricing-table">
                      <div class="pricing-details">
-                        <h2>ASESORÍAS EDUCATIVAS</h2>
+                        <h2 class="title-miembros-institucionales">ASESORÍAS EDUCATIVAS</h2>
                         <span><img src="{{asset('info_sitio/img/testimonial/asesorias.jpg')}}" alt="Asesorias educativas" /></span>
                         <ul>
                            <li>
@@ -378,7 +275,7 @@
                         </ul>
                      </div>
                      <div class="plan-button">
-                        <a href="{{asset(route('programas'))}}#asesoriaEducativa" class="btn btn-common">+Información</a>
+                        <a href="{{asset(route('programas'))}}#asesoriaEducativa" title="Mas Información" class="btn btn-common"><i class="fa fa-plus"></i> <span class="mas-informacion">Mas Información</span></a>
                      </div>
                   </div>
                </div>

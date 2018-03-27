@@ -37,10 +37,17 @@ Route::get('/contactenos', function(){
 
 Route::get('/noticias','SitioWebController@noticias')->name('noticias');
 
+Route::get('noticias/{id}/show','SitioWebController@showNoticia')->name('showNoti');
+
+
 
 Route::get('/foo', function () {
     $exitCode = Artisan::call('cache:clear');
 });
+
+
+// Get Noticia para obtener todas las noticias en el datatable
+Route::get('datatable/getNoticia/{tip?}', 'GetPublicController@getNoticias')->name('datatable/getNoticia');
 
 //Rutas del Sistema de Administracion
 Route::group(["prefix"=>"sisbeca",'middleware'=>'auth'],function ()
@@ -60,6 +67,9 @@ Route::group(["prefix"=>"sisbeca",'middleware'=>'auth'],function ()
         'uses' => 'MantenimientoUserController@destroy',
         'as' => 'mantenimientoUser.destroy'
     ]);
+        // Get Data
+        Route::get('datatable/getdata', 'MantenimientoUserController@getUsers')->name('datatable/getdata');
+
      });
 
     //Estas Rutas solo seran accedidas por el Editor (editor es un middleware
@@ -71,176 +81,9 @@ Route::group(["prefix"=>"sisbeca",'middleware'=>'auth'],function ()
             'uses' => 'MantenimientoNoticiaController@destroy',
             'as' => 'mantenimientoNoticia.destroy'
         ]);
+
     });
 
-    /*
-    Route::get('/',[
-        'uses'=> 'HomeController@index',
-        'as' =>'sisbeca'
-    ]);
-
-    Route::get('/index1',[
-        'uses'=> 'HomeController@index1',
-        'as' =>'sisbeca.index1'
-    ]);
-
-    Route::get('/emailCompose',[
-        'uses'=> 'HomeController@emailCompose',
-        'as' =>'sisbeca.emailCompose'
-    ]);
-
-    Route::get('/emailRead',[
-        'uses'=> 'HomeController@emailRead',
-        'as' =>'sisbeca.emailRead'
-    ]);
-
-    Route::get('/emailInbox',[
-        'uses'=> 'HomeController@emailInbox',
-        'as' =>'sisbeca.emailInbox'
-    ]);
-
-
-    //Forms
-
-    Route::get('/formBasic',[
-        'uses'=> 'HomeController@formBasic',
-        'as' =>'sisbeca.formBasic'
-    ]);
-
-    Route::get('/formLayout',[
-        'uses'=> 'HomeController@formLayout',
-        'as' =>'sisbeca.formLayout'
-    ]);
-
-    Route::get('/formValidation',[
-        'uses'=> 'HomeController@formValidation',
-        'as' =>'sisbeca.formValidation'
-    ]);
-
-    Route::get('/formEditor',[
-        'uses'=> 'HomeController@formEditor',
-        'as' =>'sisbeca.formEditor'
-    ]);
-
-    Route::get('/formDropzone',[
-        'uses'=> 'HomeController@formDropzone',
-        'as' =>'sisbeca.formDropzone'
-    ]);
-
-
-    //layouts
-    Route::get('/layoutBlank',[
-        'uses'=> 'HomeController@layoutBlank',
-        'as' =>'sisbeca.layoutBlank'
-    ]);
-
-    Route::get('/layoutBoxed',[
-        'uses'=> 'HomeController@layoutBoxed',
-        'as' =>'sisbeca.layoutBoxed'
-    ]);
-
-    Route::get('/layoutFixHeader',[
-        'uses'=> 'HomeController@layoutFixHeader',
-        'as' =>'sisbeca.layoutFixHeader'
-    ]);
-
-    Route::get('/layoutFixSidebar',[
-        'uses'=> 'HomeController@layoutFixSidebar',
-        'as' =>'sisbeca.layoutFixSidebar'
-    ]);
-
-
-    //pages
-    Route::get('/pageLogin',[
-        'uses'=> 'HomeController@pageLogin',
-        'as' =>'sisbeca.pageLogin'
-    ]);
-
-    Route::get('/pageRegister',[
-        'uses'=> 'HomeController@pageRegister',
-        'as' =>'sisbeca.pageRegister'
-    ]);
-
-    Route::get('/pageInvoice',[
-        'uses'=> 'HomeController@pageInvoice',
-        'as' =>'sisbeca.pageInvoice'
-    ]);
-
-    Route::get('/page-error-404',[
-        'uses'=> 'HomeController@pageError404',
-        'as' =>'sisbeca.pageError404'
-    ]);
-
-
-    //tables
-
-    Route::get('/tableBasic',[
-        'uses'=> 'HomeController@tableBasic',
-        'as' =>'sisbeca.tableBasic'
-    ]);
-
-    Route::get('/datatable',[
-        'uses'=> 'HomeController@datatable',
-        'as' =>'sisbeca.datatable'
-    ]);
-
-    //ui bootstrap
-
-    Route::get('/uiAlert',[
-        'uses'=> 'HomeController@uiAlert',
-        'as' =>'sisbeca.uiAlert'
-    ]);
-
-    Route::get('/uiButton',[
-        'uses'=> 'HomeController@uiButton',
-        'as' =>'sisbeca.uiButton'
-    ]);
-
-    Route::get('/uiDropdown',[
-        'uses'=> 'HomeController@uiDropdown',
-        'as' =>'sisbeca.uiDropdown'
-    ]);
-
-    Route::get('/uiProgressbar',[
-        'uses'=> 'HomeController@uiProgressbar',
-        'as' =>'sisbeca.uiProgressbar'
-    ]);
-
-    Route::get('/uiTab',[
-        'uses'=> 'HomeController@uiTab',
-        'as' =>'sisbeca.uiTab'
-    ]);
-
-    Route::get('/uiTypography',[
-        'uses'=> 'HomeController@uiTypography',
-        'as' =>'sisbeca.uiTypography'
-    ]);
-
-
-    //components
-
-    Route::get('/ucCalender',[
-        'uses'=> 'HomeController@ucCalender',
-        'as' =>'sisbeca.ucCalender'
-    ]);
-
-
-    Route::get('/ucNestedable',[
-        'uses'=> 'HomeController@ucNestedable',
-        'as' =>'sisbeca.ucNestedable'
-    ]);
-
-    Route::get('/ucSweetalert',[
-        'uses'=> 'HomeController@ucSweetalert',
-        'as' =>'sisbeca.ucSweetalert'
-    ]);
-
-    Route::get('/ucToastr',[
-        'uses'=> 'HomeController@ucToastr',
-        'as' =>'sisbeca.ucToastr'
-    ]);
-
-    */
 
 });
 Auth::routes();

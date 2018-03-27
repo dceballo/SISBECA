@@ -59,5 +59,11 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin' => \avaa\Http\Middleware\Admin::class,
         'editor' => \avaa\Http\Middleware\Editor::class,
+        'becario' => \avaa\Http\Middleware\Becario::class,
+        'coordinador' => \avaa\Http\Middleware\Coordinador::class,
+        'directivo' => \avaa\Http\Middleware\Directivo::class,
+        'mentor' => \avaa\Http\Middleware\Mentor::class,
+        'postulante_becario' => \avaa\Http\Middleware\PostulanteBecario::class,
+        'postulante_mentor' => \avaa\Http\Middleware\PostulanteMentor::class,
     ];
 }

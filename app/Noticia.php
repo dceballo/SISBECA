@@ -15,7 +15,7 @@ class Noticia extends Model
     }
 
     protected $fillable = [
-        'titulo', 'contenido', 'tipo','url_articulo',
+        'titulo', 'contenido', 'tipo','url_articulo','informacion_contacto','es_miembro_institucional','email_contacto','telefono_contacto',
     ];
 
     //tiene un scope para las busquedas de noticias

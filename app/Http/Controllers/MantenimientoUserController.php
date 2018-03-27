@@ -4,8 +4,14 @@ namespace avaa\Http\Controllers;
 
 use avaa\Coordinador;
 use avaa\Editor;
-use Illuminate\Http\Request;
 use avaa\User;
+use Redirect;
+use Yajra\Datatables\Datatables;
+use Illuminate\Http\Request;
+use Laracasts\Flash\Flash;
+use avaa\Http\Requests\UserRequest;
+use Validator;
+use Illuminate\Validation\Rule;
 
 class MantenimientoUserController extends Controller
 {
@@ -26,12 +32,24 @@ class MantenimientoUserController extends Controller
 
     public function index()
     {
-
-        $users = User::orderBy('id','ASC')->paginate(4);
-
-
-        return view('sisbeca.crudUser.mantenimientoUsuario')->with('users',$users);
+        return view('sisbeca.crudUser.mantenimientoUsuario');
     }
+
+    public function getUsers()
+    {
+        /*
+        $model = User::query();
+
+        return \DataTables::eloquent($model)
+            ->addColumn('accion', 'Hi {{$name}}!')
+            ->toJson();
+*/
+        $users = User::select(['id','name','email','rol'])->where('rol', '=', "coordinador")->orWhere('rol','editor')->orWhere('rol','directivo')->get();
+        return Datatables::of($users)
+            ->make(true);
+      /*  return \DataTables::of(User::query()->where('rol', '=', "coordinador")->orWhere('rol','=','editor')->orWhere('rol','=','directivo'))->make(true);
+    */
+      }
 
 
     /**
@@ -51,26 +69,13 @@ class MantenimientoUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         //
         //para guardar esos datos del formulario de creacion
         $rol=$request->rol;
 
-        //este condicional me gestionara si existen en la tabla usuarios con rol de editor o directivo, ya que coordinadores si puede existir varios
-        if($rol==='coordinador') {
-            $reg=null;
-        }
-        else {
-            $reg = User::query()->where('rol', '=', "$rol")->first(); //se busca en la tabla usuario a ver si ya existe el rol
-        }
-
-        if(is_null($reg))
-        {
             $user = new User($request->all());
-
-            //los errores de validación se crean de manera muy facil ya que la vista maneja una variable errors
-
             $user->password = bcrypt($request->password);
             $user->save();
 
@@ -81,7 +86,11 @@ class MantenimientoUserController extends Controller
 
                 $coordinador->user_id = $user->id;
 
-                $coordinador->save();
+                if($coordinador->save()){
+                    flash('Usuario->'.strtoupper($user->rol).' Registrado Exitosamente!','success')->important();
+                }else{
+                    flash('Ha ocurrido un error al registrar el Usuario->'.strtoupper($user->rol))->error()->important();
+                }
             } else {
                 if ($user->rol === 'editor') {
 
@@ -90,17 +99,18 @@ class MantenimientoUserController extends Controller
 
                     $editor->user_id = $user->id;
 
-                    $editor->save();
+
+                    if($editor->save()){
+                        flash('Usuario->'.strtoupper($user->rol).' Registrado Exitosamente!','success')->important();
+                    }
+                    else{
+                        flash('Ha ocurrido un error al registrar el Usuario->'.strtoupper($user->rol))->error()->important();
+                    }
 
                 }
             }
             return redirect()->route('mantenimientoUser.index');
 
-        }
-        else {
-            dd('No puedes crear un rol '.$request->rol.' porque ya existe'); // Esto se cambia por un mensaje de error que no se puede crear mas de un usuario con el rol seleccionado
-
-        }
 
     }
 
@@ -129,7 +139,8 @@ class MantenimientoUserController extends Controller
 
         if(is_null($user))
         {
-            abort('404','Archivo no encontrado');
+            flash('El Archivo solicitado no ha sido encontrado','error')->important();
+            return back();
         }
 
         return view('sisbeca.crudUser.editarUsuario')->with('user',$user);
@@ -142,7 +153,7 @@ class MantenimientoUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         //encargado de recibir los datos que mandemos del usuario que indiquemos en edit y poder actualizarlo
         $user = User::find($id);
@@ -150,21 +161,40 @@ class MantenimientoUserController extends Controller
         $rolNuevo=$request->rol;
         $rolViejo=$user->rol;
 
+        //los errores de validación  personales para el email y cedula
+        Validator::make($request->all(), [
+            'email' => [
+                Rule::unique('users')->ignore($user->id),
+            ],
+            'cedula' => [
+                Rule::unique('users')->ignore($user->id),
+            ],
+        ])->validate();
+
         //este condicional me gestionara si existen en la tabla usuarios con rol de editor o directivo, ya que coordinadores si puede existir varios
         if($rolNuevo===$user->rol || $rolNuevo==='coordinador') {
-            $reg=null;
+
+            //
         }
         else {
 
-            $reg = User::query()->where('rol', '=', "$rolNuevo")->first(); //se busca en la tabla usuario a ver si ya existe el rol
+            //errores personales para el rol
+            Validator::make($request->all(), [
+                'rol' => [
+                    Rule::unique('users')->ignore($user->id),
+                ],
+            ])->validate();
+
+
         }
 
-        if(is_null($reg)) {
 
             $user->fill($request->all());
             $user->password = bcrypt($request->password);
 
             $user->save();
+
+            flash('Usuario Actualizado Exitosamente','success')->important();
 
             //Si al actualizar se quiere cambiar de rol  a uno que tenga una relacion con tablas distintas se manejan estas condiciones
 
@@ -172,13 +202,20 @@ class MantenimientoUserController extends Controller
 
             if(($rolViejo==='directivo'||$rolViejo==='coordinador')&&($rolNuevo=='editor'))
             {
-                $editDelete= Coordinador::query()->where('user_id', '=', "$user->id")->delete();
+                $coordinadorDelete= Coordinador::query()->where('user_id', '=', "$user->id")->delete();
 
                 $edit= new Editor();
 
                 $edit->user_id=$user->id;
 
-                $edit->save();
+                if($edit->save())
+                {
+                    flash('Usuario con rol '.strtoupper($rolViejo).' Actualizado a rol '.strtoupper($rolNuevo).' Exitosamente','success')->important();
+                }
+                else
+                {
+                    flash('Ha ocurrido un error al cambiar rol de usuario')->error()->important();
+                }
             }
             else
             {
@@ -191,13 +228,15 @@ class MantenimientoUserController extends Controller
 
                     $coord->user_id=$user->id;
 
-                    $coord->save();
+                   if( $coord->save()){
+                       flash('Usuario con rol '.strtoupper($rolViejo).' Actualizado a rol '.strtoupper($rolNuevo).' Exitosamente','success')->important();
+                   }
+                   else{
+                       flash('Ha ocurrido un error al cambiar rol de usuario')->error()->important();
+                   }
                 }
             }
-        }
-        else{
-            dd('No puedes cambiar a un rol '.$request->rol.' porque ya este existe'); // Esto se cambia por un mensaje de error que no se puede crear mas
-        }
+
 
         return  redirect()->route('mantenimientoUser.index');
     }
@@ -215,9 +254,25 @@ class MantenimientoUserController extends Controller
         $user= User::find($id);
         if(is_null($user))
         {
-            abort('404','Archivo no encontrado');
+            flash('El Archivo solicitado no ha sido encontrado')->error()->important();
+            return back();
         }
-        $user->delete();
+        else{
+            if($user->rol==='admin')
+            {
+                flash('El Archivo solicitado no ha sido encontrado')->error()->important();
+                return back();
+            }
+        }
+
+        if($user->delete()) {
+
+            flash('El Usuario ha sido Eliminado Exitosamente', 'info')->important();
+
+        }
+        else{
+            flash('Ha ocurrido un error al tratar de eliminar usuario')->error()->important();
+        }
 
         return  redirect()->route('mantenimientoUser.index');
     }

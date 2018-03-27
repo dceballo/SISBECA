@@ -48,47 +48,20 @@
                <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s"><strong>Artículos relacionados con Proexcelencia AVAA de educación integral en Venezuela</strong></p>
             </div>
 
-            <div class="row letrasResponsive">
-               <div class="side-center col-sm-12 col-md-12">
+            <div class="row contentNoticia">
+
+                  <div class=" side-center col-lg-12 ">
+                     <table class="getNoticia table-hover datatable" id="dt_noticia">
+                        <thead class="col-lg-12 col-xs-6 col-sm-6">
+                        <th  class="th-titulo"></th>
+                        <th class="th-accion"></th>
+                        </thead>
 
 
-                  <!-- Buscador de Noticias -->
-                  <div class="row">
-                     <div class="col-lg-8 col-md-6 "></div>
-                     <div class="col-lg-4 col-md-6 ">
-
-                     <form action="{{route('noticias')}}" name="createPost" accept-charset="UTF-8"method="GET" >
-                     <label class="control-label" for="titulo">Busqueda</label>
-                        <div class="form-group input-group">
-                           <input id="titulo" name="titulo" type="text" value="{{$titulo}}" class="form-control">
-                           <span class="input-group-btn"><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button></span>
-                        </div>
-
-                     </form>
+                     </table>
 
 
-
-                     </div>
                   </div>
-                  <hr/>
-                   @if( $num_noticias != 0)
-                  <ul class="list-group">
-                      @foreach( $noticias as $noticia)
-                          <li class="list-group-item" style="margin-left: 85px;border: none">
-                              <p style=" margin-bottom: 0px"><a href="#"><strong>{{$noticia->titulo}}</strong></a></p>
-                          </li>
-                      @endforeach
-
-                  </ul>
-                   @else
-                       <h6 align="center" style="font-weight: bold;background-color: rgba(115,171,217,0.1)">No se Encontraron Resultados...</h6>
-                       @endif
-                  <br/>
-                  <hr/>
-                   <div class="text-center">
-                       {!! $noticias->render() !!} {{--Esto por lo del paginado--}}
-                   </div>
-               </div>
             </div>
          </div>
       </section>
@@ -96,6 +69,45 @@
 
    @endsection
 @section('personaljs')
+   <script type="text/javascript">
+       $(document).ready(function() {
+           var table= $('.datatable').DataTable({
+               processing: true,
+               serverSide: true,
+               ajax: '{{route('datatable/getNoticia')}}',
+               columns: [
+                   {data: 'titulo', name: 'titulo'},
+                   {
+                       data:null,
+                       searchable:false,
+                       defaultContent: "<button type='button' id='btn-noticia' class='edit btn btn-primary'><i class='fa fa-eye'></i> Ver Noticia</button> ",
+                       orderable: false
+                   },
 
+
+
+               ]
+           });
+
+
+           Mostrar('#dt_noticia tbody',table);
+
+
+       });
+
+       var Mostrar= function (tbody,table) {
+           $(tbody).on('click','button.edit',function () {
+               var data= table.row($(this).parents('tr')).data();
+               //console.log(data.id);
+               var route= "{{asset('noticias')}}/"+data.id+'/show';
+
+
+               location.assign(route);
+           });
+
+       }
+
+
+   </script>
 
 @endsection

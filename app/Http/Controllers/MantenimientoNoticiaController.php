@@ -6,6 +6,12 @@ use avaa\Editor;
 use avaa\Noticia;
 use Illuminate\Http\Request;
 use avaa\Http\Controllers\Controller;
+use Redirect;
+use Yajra\Datatables\Datatables;
+use Laracasts\Flash\Flash;
+use avaa\Http\Requests\NoticiaRequest;
+use Validator;
+use Illuminate\Validation\Rule;
 
 class MantenimientoNoticiaController extends Controller
 {
@@ -14,8 +20,14 @@ class MantenimientoNoticiaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('editor');
+    }
     public function index(Request $request)
     {
+        /* Esto se comento porque ahora se usa AJAX
         $noticias = Noticia::search($request->titulo)->orderBy('id','ASC')->paginate(4);
 
         //each lo que hace es un recorrido por cada uno de las noticias
@@ -23,11 +35,13 @@ class MantenimientoNoticiaController extends Controller
             $noticias->editor->user; //aqui lo que hago es llamar a la relaciones para cada uno de las noticias
 
         });
+        */
 
 
 
-        return view('sisbeca.crudNoticia.mantenimientoNoticia')->with('noticias',$noticias)->with('titulo',$request->titulo);
+        return view('sisbeca.crudNoticia.mantenimientoNoticia');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -45,15 +59,14 @@ class MantenimientoNoticiaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NoticiaRequest $request)
     {
         //Manipulación de Archivos
 
         //hay que crearle un nombre unico a la imagen que se guardara en el campo
-        $file= $request->file('image');
+        $file= $request->file('url_imagen');
 
 
-        if(!is_null($file)) {
             //getClientOriginalExtension para conocer la extension
             $name = 'noticiasAVAA_' . time() . '.' . $file->getClientOriginalExtension();
             //la ruta donde queremos guardar esta imagenes
@@ -72,10 +85,14 @@ class MantenimientoNoticiaController extends Controller
 
             $noticia->url_imagen = '/images/noticias/'.$name;
 
-            $noticia->save();
-
-
-        }
+            if($noticia->save())
+            {
+                flash('Articulo Registrado Exitosamente!','success')->important();
+            }
+            else
+            {
+                flash('Ha ocurrido un error al registrar el articulo')->error()->important();
+            }
 
 
         return redirect()->route('mantenimientoNoticia.index');
@@ -106,7 +123,9 @@ class MantenimientoNoticiaController extends Controller
 
         if(is_null($noticia))
         {
-            abort('404','Archivo no encontrado');
+
+            flash('El Archivo solicitado no ha sido encontrado')->error()->important();
+            return back();
         }
 
         return view('sisbeca.crudNoticia.editarNoticia')->with('noticia',$noticia);
@@ -119,14 +138,25 @@ class MantenimientoNoticiaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NoticiaRequest $request, $id)
     {
         //
         $noticia = Noticia::find($id);
-        $file= $request->file('image');
+        $file= $request->file('url_imagen');
 
 
-        if(!is_null($file)) {
+        if($request->tipo==='articulo') {
+
+            Validator::make($request->all(), [
+                'url_articulo' => 'required|url',
+                'email_contacto' => [
+                    Rule::unique('noticias')->ignore($noticia->id),
+                ],
+                'email_contacto' => 'nullable|email|max:30',
+
+            ])->validate();
+        }
+
             //se borra la imagen anterior del servidor
             unlink(public_path() .$noticia->url_imagen);
             //getClientOriginalExtension para conocer la extension
@@ -148,12 +178,18 @@ class MantenimientoNoticiaController extends Controller
 
             $noticia->url_imagen = '/images/noticias/'.$name;
 
-            $noticia->save();
+            if($noticia->save())
+            {
+                flash('Articulo Actualizado Exitosamente!','success')->important();
+            }
+            else
+            {
+                flash('Ha ocurrido un error al actualizar el articulo')->error()->important();
+            }
 
 
-        }
+    return  redirect()->route('mantenimientoNoticia.index');
 
-        return  redirect()->route('mantenimientoNoticia.index');
 
 
     }
@@ -170,11 +206,21 @@ class MantenimientoNoticiaController extends Controller
         $noticia= Noticia::find($id);
         if(is_null($noticia))
         {
-            abort('404','Archivo no encontrado');
+
+            flash('El Archivo solicitado no ha sido encontrado')->error()->important();
+            return back();
         }
-        //se borra la imagen del servidor
-        unlink(public_path() .$noticia->url_imagen);
-        $noticia->delete();
+
+
+        if($noticia->delete())
+        {
+            //se borra la imagen del servidor
+            unlink(public_path() .$noticia->url_imagen);
+            flash('El Articulo ha sido Eliminado Exitosamente','info')->important();
+        }else{
+            flash('Ha Ocurrido un error al eliminar articulo')->error()->important();
+
+        }
 
         return  redirect()->route('mantenimientoNoticia.index');
     }

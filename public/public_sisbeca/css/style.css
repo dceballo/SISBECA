@@ -102,7 +102,9 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   overflow-x: hidden;
+
 }
+
 html {
   position: relative;
   min-height: 100%;
@@ -294,9 +296,6 @@ h6 {
 }
 .text-purple {
   color: #7460ee;
-}
-.text-primary {
-  color: #5c4ac7;
 }
 .text-megna {
   color: #00897b;
@@ -675,8 +674,11 @@ a,
 button {
   outline: none!important;
   text-decoration: none!important;
-  color: #99abb4;
+
   transition: all 0.2s ease 0s;
+}
+a{
+  color: #99abb4;
 }
 a.active,
 button.active,
@@ -827,11 +829,17 @@ h6.h1 {
     opacity: 0.0;
   }
 }
+
+.opcion-menu-oculta{
+  visibility: hidden;display: none
+
+}
 /*    Color Mixins
 -------------------*/
 .color-primary,
 .text-primary {
-  color: #4680ff;
+  color: rgb(25, 118, 210)  !important;
+  font-weight: bold !important;
 }
 .color-success,
 .text-success {
@@ -1547,6 +1555,10 @@ textarea {
 }
 .fix-sidebar .left-sidebar {
   position: fixed;
+  background: -webkit-linear-gradient(left top, rgba(61, 145, 214, 0.03), rgba(61, 145, 214, 0.07)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right,rgba(61, 145, 214, 0.03) , rgba(61, 145, 214, 0.07)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(61, 145, 214, 0.03) ,rgba(61, 145, 214, 0.07)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, rgba(61, 145, 214, 0.03) , rgba(61, 145, 214, 0.07)); /* Standard syntax */
 }
 .sidebar-footer {
   position: fixed;
@@ -1575,7 +1587,6 @@ textarea {
   display: block;
 }
 .sidebar-nav {
-  background: #fff;
   padding: 0;
 }
 .sidebar-nav ul {
@@ -1929,7 +1940,10 @@ textarea {
   margin-bottom: 0;
 }
 .page-titles {
-  background: #ffffff;
+  background: -webkit-linear-gradient(left top, rgba(61, 145, 214, 0.03), rgba(61, 145, 214, 0.07)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right,rgba(61, 145, 214, 0.03) , rgba(61, 145, 214, 0.07)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(61, 145, 214, 0.03) ,rgba(61, 145, 214, 0.07)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, rgba(61, 145, 214, 0.03) , rgba(61, 145, 214, 0.07)); /* Standard syntax */
   margin: 0 0 30px;
   padding: 15px 10px;
   position: relative;
@@ -2360,6 +2374,7 @@ textarea {
   background: #1976d2 none repeat scroll 0 0;
   color: #ffffff;
 }
+/*
 .modal-dialog {
   margin: 30px auto;
   position: relative;
@@ -2374,6 +2389,15 @@ textarea {
 }
 .modal-content {
   border-radius: 3px;
+}
+*/
+.input-modal-none{
+  border: none !important;
+  background-color: white !important;
+
+}
+.form-modal-none{
+  padding-left: 50px;
 }
 .timeline {
   list-style: none;
@@ -4949,6 +4973,7 @@ footer p {
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
 }
+/*
 .input-group-close-icon {
   background: none;
   color: #252525;
@@ -4960,7 +4985,7 @@ footer p {
   background: none;
   border-color: #e7e7e7;
   color: #252525;
-}
+}*/
 /*    Input States
 -----------------------*/
 .has-default .form-control.active,
@@ -5857,57 +5882,6 @@ tbody tr td:last-child {
   font-weight: 400;
   color: #4680ff;
 }
-/*Aleart
--------------*/
-.alert-primary {
-  background-color: #a2bfff;
-  border-color: #a2bfff;
-  color: #4680ff;
-}
-.alert-success {
-  background-color: #93ede9;
-  border-color: #93ede9;
-  color: #26dad2;
-}
-.alert-warning {
-  background-color: #ffeacd;
-  border-color: #ffeacd;
-  color: #ffb64d;
-}
-.alert-danger {
-  background-color: #fedee5;
-  border-color: #fedee5;
-  color: #fc6180;
-}
-.alert-pink {
-  background-color: #f8e4fb;
-  border-color: #f8e4fb;
-  color: #e6a1f2;
-}
-.alert-dismissable .close,
-.alert-dismissible .close {
-  color: rgba(0, 0, 0, 0.8);
-}
-/*    Labels
-------------------*/
-.label-default {
-  background-color: #878787;
-}
-.label-primary {
-  background-color: #4680ff;
-}
-.label-success {
-  background-color: #26dad2;
-}
-.label-info {
-  background-color: #62d1f3;
-}
-.label-danger {
-  background-color: #fc6180;
-}
-.label-warning {
-  background-color: #ffb64d;
-}
 /* Calendar
 ================================================== */
 /* =============
@@ -5920,9 +5894,11 @@ tbody tr td:last-child {
 .fc-view {
   margin-top: 30px;
 }
+/*
 .none-border .modal-footer {
   border-top: none;
 }
+*/
 .fc-toolbar {
   margin-bottom: 5px;
   margin-top: 15px;
@@ -6003,10 +5979,11 @@ tbody tr td:last-child {
   margin: 0px;
   top: 3px;
 }
+/*
 #event-modal .modal-dialog,
 #add-category .modal-dialog {
   max-width: 600px;
-}
+}*/
 .flotTip {
   background: #252525;
   border: 1px solid #252525;

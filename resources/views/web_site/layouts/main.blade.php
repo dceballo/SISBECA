@@ -12,6 +12,7 @@
       <link href="{{asset('info_sitio/img/favicon.png')}}" type="image/x-icon" rel="shortcut icon" />
       <link rel="stylesheet" href="{{asset('info_sitio/css/bootstrap.min.css')}}">
       <link rel="stylesheet" href="{{asset('info_sitio/css/font-awesome.min.css')}}">
+      <link rel="stylesheet" href="{{asset('info_sitio/css/materialdesignicons.min.css')}}">
       <link rel="stylesheet" href="{{asset('info_sitio/css/line-icons.css')}}">
       <link rel="stylesheet" href="{{asset('info_sitio/css/owl.carousel.css')}}">
       <link rel="stylesheet" href="{{asset('info_sitio/css/owl.theme.css')}}">
@@ -21,6 +22,8 @@
       <link rel="stylesheet" href="{{asset('info_sitio/css/animate.css')}}">
       <link rel="stylesheet" href="{{asset('info_sitio/css/main.css')}}">
       <link rel="stylesheet" href="{{asset('info_sitio/css/responsive.css')}}">
+      <!-- datatable css -->
+      <link href="{{asset('css/datatable.css')}}" rel="stylesheet"/>
    </head>
    <body>
       <!-- Header Section Start -->
@@ -34,6 +37,7 @@
       @include('web_site.layouts.footer')
 
 
+
       <!-- jQuery first, then Tether, then Bootstrap JS. -->
       <script src="{{asset('info_sitio/js/jquery-min.js')}}"></script>
       <script src="{{asset('info_sitio/js/popper.min.js')}}"></script>
@@ -43,9 +47,9 @@
       <script src="{{asset('info_sitio/js/owl.carousel.js')}}"></script>    
       <script src="{{asset('info_sitio/js/jquery.stellar.min.js')}}"></script>    
       <script src="{{asset('info_sitio/js/jquery.nav.js')}}"></script>    
-      <script src="{{asset('info_sitio/js/scrolling-nav.js')}}"></script>    
+      <script src="{{asset('info_sitio/js/scrolling-nav.js')}}"></script>
       <script src="{{asset('info_sitio/js/jquery.easing.min.js')}}"></script>    
-      <script src="{{asset('info_sitio/js/smoothscroll.js')}}"></script>    
+     {{-- <script src="{{asset('info_sitio/js/smoothscroll.js')}}"></script>  --}}
       <script src="{{asset('info_sitio/js/jquery.slicknav.js')}}"></script>     
       <script src="{{asset('info_sitio/js/wow.js')}}"></script>   
       <script src="{{asset('info_sitio/js/jquery.vide.js')}}"></script>
@@ -55,5 +59,9 @@
       <script src="{{asset('info_sitio/js/form-validator.min.js')}}"></script>
       <script src="{{asset('info_sitio/js/contact-form-script.js')}}"></script>   
       <script src="{{asset('info_sitio/js/main.js')}}"></script>
+      <!-- DataTable javaScript -->
+      <script src="{{asset('js/datatable.js')}}"></script>
+
+      @yield('personaljs')
    </body>
 </html>
