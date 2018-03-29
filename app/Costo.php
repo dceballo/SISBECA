@@ -8,9 +8,8 @@ class Costo extends Model
 {
     protected $table='costos';
 
-    public function editor(){
 
-        return $this->belongsTo('avaa\Editor','editor_id','user_id');
-
-    }
+    protected $fillable = [
+        'sueldo_becario', 'costo_ases_basica', 'costo_ases_intermedia','costo_ases_completa','costo_membresia',
+    ];
 }

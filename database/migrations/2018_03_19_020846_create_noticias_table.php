@@ -17,6 +17,7 @@ class CreateNoticiasTable extends Migration
             $table->increments('id');
             $table->string('informacion_contacto');
             $table->string('titulo');
+            $table->string('slug');
             $table->string('url_imagen');
             $table->text('contenido');
             $table->enum('tipo',['noticia','articulo'])->default('noticia');

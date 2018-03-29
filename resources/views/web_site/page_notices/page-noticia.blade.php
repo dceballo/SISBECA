@@ -29,12 +29,14 @@
             <hr class="lines">
             <section class="welcome-section section-padding section-dark">
                 <div class="container">
-                    <div class="row letrasNoticias">
+                    <div class="row letrasResponsive">
                         @if(!is_null($noticia->url_articulo))
                             <div class="notice-header-footer side-left col-sm-6 col-md-6"><a href="{{asset($noticia->url_articulo)}}">{{$noticia->url_articulo}}</a></div>
                             @endif
-                        <div class="contenidoDeList side-center col-sm-12 col-md-12">
-                            {!! $noticia->contenido !!}
+                        <div class="contenidoDeList  side-center col-sm-12 col-md-12">
+                            <p class="break-all letrasNoticias">{!! $noticia->contenido !!}</p>
+
+                        </div>
                         </div>
 
                             <div align="left" class="notice-header-footer col-sm-12 col-md-12">

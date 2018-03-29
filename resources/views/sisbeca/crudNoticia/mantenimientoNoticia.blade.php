@@ -2,6 +2,7 @@
 @section('title','Inicio')
 @section('subtitle','Mantenimiento de Articulos')
 @section('content')
+
     <div class="row">
         <div class="col-12">
             <div class="panel panel-default">

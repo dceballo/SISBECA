@@ -21,7 +21,7 @@ class CreateNominasTable extends Migration
             $table->decimal('total');
             $table->unsignedInteger('mes');
             $table->unsignedInteger('year');
-            $table->enum('status',['actualizado', 'generado', 'pagado'])->default('actualizado');
+            $table->enum('status',['pendiente', 'generado', 'pagado'])->default('pendiente');
             $table->timestamp('fecha_pago')->nullable();
             $table->timestamp('fecha_generada')->nullable();
             $table->timestamps();
@@ -33,10 +33,10 @@ class CreateNominasTable extends Migration
         //de manera singular las dos tablas que se vayan a relacionar
         Schema::create('becarios_nominas',function(Blueprint $table){
             $table->increments('id');
-            $table->unsignedInteger('becario_id');
+            $table->unsignedInteger('user_id');
             $table->unsignedInteger('nomina_id');
 
-            $table->foreign('becario_id')->references('user_id')->on('becarios')->onDelete('cascade');
+            $table->foreign('user_id')->references('user_id')->on('becarios')->onDelete('cascade');
             $table->foreign('nomina_id')->references('id')->on('nominas')->onDelete('cascade');
             $table->timestamps();
 

@@ -22,12 +22,6 @@ class Editor extends Model
 
     }
 
-    public function costo(){
-
-        return $this->hasOne('avaa\Costo','editor_id','user_id');
-
-    }
-
     public function actividades(){
 
         return $this->hasMany('avaa\Actividad','editor_id','user_id');

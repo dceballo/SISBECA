@@ -13,6 +13,7 @@
                 <table class="table table-hover table-striped datatable" id="dt_user">
                     <thead>
 
+                    <th>Id</th>
                     <th>Nombre</th>
                     <th>E-mail</th>
                     <th>Rol</th>
@@ -79,6 +80,7 @@
                 serverSide: true,
                 ajax: '{{route('datatable/getdata')}}',
                 columns: [
+                    {data: 'id', name: 'id'},
                     {data: 'name', name: 'name'},
                     {data: 'email', name: 'email'},
                     {data: 'rol', name: 'rol'},

@@ -13,7 +13,8 @@ class CreateEditoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('editores', function (Blueprint $table) {
+        Schema::create('editores', function (Blueprint $table) 
+        {
             $table->primary('user_id'); //se coloca el mismo id porque la relacion uno a uno no pueden existir dos perfiles con el mismo user
             $table->unsignedInteger('user_id');
             $table->timestamps();

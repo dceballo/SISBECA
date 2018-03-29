@@ -40,31 +40,25 @@
          </div>
       </section>
       <!--Inicio de Sesion de Miembros institucionales -->
-      <section id="Noticias" class="section">
-         <div class="container">
-            <div class="section-header">
-               <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Sección de Noticias</h2>
-               <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-               <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s"><strong>Artículos relacionados con Proexcelencia AVAA de educación integral en Venezuela</strong></p>
-            </div>
+      <div id="Noticias" class="section">
+       <div class="container">
+        <div class="section-header">
+         <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Sección de Noticias</h2>
+         <hr class="lines wow zoomIn" data-wow-delay="0.3s">
+         <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s"><strong>Artículos relacionados con Proexcelencia AVAA de educación integral en Venezuela</strong></p>
+       </div>
 
-            <div class="row contentNoticia">
+        <div class="container " style="border: 1px solid orange">
+          @foreach($noticias as $noticia)
+          <div class="col-lg-4 col-md-4" style="border: 1px solid red">
+            <img src="{{ $noticia->url_imagen }}" class="img-responsive" >
+            <a href="{{ route('showNoticia',$noticia->slug) }}"><p class="text-left h1">{{ $noticia->titulo }}</p></a>
+          </div>
+          @endforeach
+        </div>
 
-                  <div class=" side-center col-lg-12 ">
-                     <table class="getNoticia table-hover datatable" id="dt_noticia">
-                        <thead class="col-lg-12 col-xs-6 col-sm-6">
-                        <th  class="th-titulo"></th>
-                        <th class="th-accion"></th>
-                        </thead>
-
-
-                     </table>
-
-
-                  </div>
-            </div>
-         </div>
-      </section>
+    </div>
+  </div>
 
 
    @endsection
@@ -99,7 +93,7 @@
            $(tbody).on('click','button.edit',function () {
                var data= table.row($(this).parents('tr')).data();
                //console.log(data.id);
-               var route= "{{asset('noticias')}}/"+data.id+'/show';
+               var route= "{{asset('noticias')}}/"+data.slu+'/show';
 
 
                location.assign(route);

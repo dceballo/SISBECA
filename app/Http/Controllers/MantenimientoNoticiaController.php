@@ -15,16 +15,12 @@ use Illuminate\Validation\Rule;
 
 class MantenimientoNoticiaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function __construct()
     {
         $this->middleware('editor');
     }
+
     public function index(Request $request)
     {
         /* Esto se comento porque ahora se usa AJAX
@@ -36,94 +32,46 @@ class MantenimientoNoticiaController extends Controller
 
         });
         */
-
-
-
         return view('sisbeca.crudNoticia.mantenimientoNoticia');
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('sisbeca.crudNoticia.crearNoticia');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(NoticiaRequest $request)
     {
-        //Manipulación de Archivos
-
-        //hay que crearle un nombre unico a la imagen que se guardara en el campo
         $file= $request->file('url_imagen');
-
-
-            //getClientOriginalExtension para conocer la extension
-            $name = 'noticiasAVAA_' . time() . '.' . $file->getClientOriginalExtension();
-            //la ruta donde queremos guardar esta imagenes
-            //public_path() direccion exacta donde esta nuestro proyecto
-            $path = public_path() . '/images/noticias/';
-
-            //mover la imagen a la carpeta deseada
-            $file->move($path, $name);
-
-
-            $noticia = new Noticia($request->all());
-
-
-            //el id del usuario que esta actualmente logueado
-            $noticia->editor_id = \Auth::user()->id;
-
-            $noticia->url_imagen = '/images/noticias/'.$name;
-
-            if($noticia->save())
-            {
-                flash('Articulo Registrado Exitosamente!','success')->important();
-            }
-            else
-            {
-                flash('Ha ocurrido un error al registrar el articulo')->error()->important();
-            }
-
-
+        $name = 'noticiasAVAA_' . time() . '.' . $file->getClientOriginalExtension();
+        $path = public_path() . '/images/noticias/';
+        $file->move($path, $name);
+        $noticia = new Noticia($request->all());
+        $noticia->slug = Noticia::getSlug($noticia->titulo);
+        $noticia->editor_id = \Auth::user()->id;
+        $noticia->url_imagen = '/images/noticias/'.$name;
+        if($noticia->save())
+        {
+            flash('El artículo fue registrado exitosamente.','success')->important();
+        }
+        else
+        {
+            flash('Ha ocurrido un error al registrar el articulo')->error()->important();
+        }
         return redirect()->route('mantenimientoNoticia.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //para cargar un formulario el cual es donde vamos a editar algun tipo usuario
         $noticia = Noticia::find($id);
-
-
         if(is_null($noticia))
         {
-
             flash('El Archivo solicitado no ha sido encontrado')->error()->important();
             return back();
         }
@@ -131,22 +79,12 @@ class MantenimientoNoticiaController extends Controller
         return view('sisbeca.crudNoticia.editarNoticia')->with('noticia',$noticia);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(NoticiaRequest $request, $id)
     {
-        //
         $noticia = Noticia::find($id);
         $file= $request->file('url_imagen');
-
-
-        if($request->tipo==='articulo') {
-
+        if($request->tipo==='articulo')
+        {
             Validator::make($request->all(), [
                 'url_articulo' => 'required|url',
                 'email_contacto' => [
@@ -156,70 +94,43 @@ class MantenimientoNoticiaController extends Controller
 
             ])->validate();
         }
-
-            //se borra la imagen anterior del servidor
-            unlink(public_path() .$noticia->url_imagen);
-            //getClientOriginalExtension para conocer la extension
-            $name = 'noticiasAVAA_' . time() . '.' . $file->getClientOriginalExtension();
-            //la ruta donde queremos guardar esta imagenes
-            //public_path() direccion exacta donde esta nuestro proyecto
-            $path = public_path() . '/images/noticias/';
-
-            //mover la imagen a la carpeta deseada
-            $file->move($path, $name);
-
-
-
-            $noticia->fill($request->all());
-
-
-            //el id del usuario que esta actualmente logueado
-            $noticia->editor_id = \Auth::user()->id;
-
-            $noticia->url_imagen = '/images/noticias/'.$name;
-
-            if($noticia->save())
-            {
-                flash('Articulo Actualizado Exitosamente!','success')->important();
-            }
-            else
-            {
-                flash('Ha ocurrido un error al actualizar el articulo')->error()->important();
-            }
-
-
-    return  redirect()->route('mantenimientoNoticia.index');
-
-
+        unlink(public_path() .$noticia->url_imagen);
+        $name = 'noticiasAVAA_' . time() . '.' . $file->getClientOriginalExtension();
+        $path = public_path() . '/images/noticias/';
+        $file->move($path, $name);
+        $noticia->fill($request->all());
+        $noticia->slug = Noticas::getSlug($noticia->titulo);
+        $noticia->editor_id = \Auth::user()->id;
+        $noticia->url_imagen = '/images/noticias/'.$name;
+        if($noticia->save())
+        {
+            flash('EL artículo fue actualizado exitosamente.','success')->important();
+        }
+        else
+        {
+            flash('Ha ocurrido un error al actualizar el articulo.')->error()->important();
+        }
+        return  redirect()->route('mantenimientoNoticia.index');
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        // Eliminar una noticia
         $noticia= Noticia::find($id);
         if(is_null($noticia))
         {
-
-            flash('El Archivo solicitado no ha sido encontrado')->error()->important();
+            flash('El Archivo solicitado no ha sido encontrado.')->error()->important();
             return back();
         }
 
-
         if($noticia->delete())
         {
-            //se borra la imagen del servidor
             unlink(public_path() .$noticia->url_imagen);
-            flash('El Articulo ha sido Eliminado Exitosamente','info')->important();
-        }else{
-            flash('Ha Ocurrido un error al eliminar articulo')->error()->important();
-
+            flash('El artículo ha sido eliminado exitosamente.','info')->important();
+        }
+        else
+        {
+            flash('Ha Ocurrido un error al eliminar articulo.')->error()->important();
         }
 
         return  redirect()->route('mantenimientoNoticia.index');
