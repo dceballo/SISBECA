@@ -83,7 +83,11 @@
                                    <a href="{{ route('register') }}"> <button type="button" class="btn btn-background-gradient-style m-b-10 m-t-10" > Postularse a ProExcelencia</button> </a>
 
                                        <!-- Boton de Postulante a Mentor -->
+<<<<<<< HEAD
                                      <a href="{{ route('registerMentor') }}"><button type="button" class="btn btn-background-gradient-style m-b-10 m-t-10">Postularse como Mentor</button></a>
+=======
+                                    <button type="button" class="btn btn-background-gradient-style m-b-10 m-t-10">Postularse como Mentor</button>
+>>>>>>> 3004330c1758b85ac79cfd1da3809b55951ab1ec
 
                                        <p>¿No estas Registrado? <a href="{{ route('register') }}"> Registrate Aqui!</a></p>
 

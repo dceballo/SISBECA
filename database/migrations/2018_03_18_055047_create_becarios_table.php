@@ -18,7 +18,9 @@ class CreateBecariosTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('coordinador_id');
             $table->unsignedInteger('mentor_id');
-            $table->boolean('aceptado');
+            $table->boolean('acepto_terminos')->default(false);
+            $table->enum('status',['activo','probatorio1','probatorio2','egresado','inactivo','desincorporado'])->default('activo');
+            $table->decimal('retroactivo')->default(0);
             //los demás campos
             $table->timestamps();
 

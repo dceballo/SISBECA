@@ -30,4 +30,4 @@
     <link href="{{asset('public_sisbeca/css/lib/toastr/toastr.min.css')}}" rel="stylesheet"/>
 
     <!-- datatable css -->
-    <link href="{{asset('css/datatable.css')}}" rel="stylesheet"/>
+   <link href="{{asset('css/datatable.css')}}" rel="stylesheet"/>

@@ -9,12 +9,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('info_sitio/img/favicon.png')}}" >
     <title>Avaa - Panel de Administración</title>
 
     @include('sisbeca.layouts.partials.filescss')
+
+    <script src="{{asset('js/dt.js')}}"></script>
+
     @yield('personalcss')
 
 </head>

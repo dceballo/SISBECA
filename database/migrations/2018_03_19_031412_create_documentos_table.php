@@ -6,11 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateDocumentosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
         Schema::create('documentos', function (Blueprint $table) {
@@ -24,11 +20,6 @@ class CreateDocumentosTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('documentos');

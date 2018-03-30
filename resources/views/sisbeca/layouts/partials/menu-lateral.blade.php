@@ -126,9 +126,8 @@
                 <li class="nav-label">Gestion de Nominas</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Nomina</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">Generar Nomina</a></li>
-                        <li><a href="#">Consultar Nomina</a></li>
-                        <li><a href="#">Cambiar Status de Nomina</a></li>
+                        <li><a href="{{ route('nomina.listar') }}">Listar Nómina</a></li>
+                        <li><a href="{{ route('nomina.cambiar') }}">Cambiar Status de Nómina</a></li>
                     </ul>
                 </li>
                 @endif
@@ -163,7 +162,7 @@
                 <li class="nav-label">Consultas y Reportes</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-suitcase"></i><span class="hide-menu">Becarios</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="#">Listado</a></li>
+                        <li><a href="{{ route('becarios.listar') }}">Listado</a></li>
                         <li><a href="#">Consultar Expendientes</a></li>
                         <li><a href="#">Reportes de Notas</a></li>
                         <li><a href="#">Consultar Mejor Promedio</a></li>
