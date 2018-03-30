@@ -14,11 +14,14 @@ class CreateCostosTable extends Migration
     public function up()
     {
         Schema::create('costos', function (Blueprint $table) {
-            $table->primary('editor_id');
-            $table->decimal('sueldo');
-            $table->unsignedInteger('editor_id');
+            $table->increments('id');
+            $table->decimal('sueldo_becario')->default(0);
+            $table->decimal('costo_ases_basica')->default(0);
+            $table->decimal('costo_ases_intermedia')->default(0);
+            $table->decimal('costo_ases_completa')->default(0);
+            $table->decimal('costo_membresia')->default(0);
+            $table->timestamp('fecha_valido')->nullable();
             $table->timestamps();
-            $table->foreign('editor_id')->references('user_id')->on('editores')->onDelete('cascade');
         });
     }
 

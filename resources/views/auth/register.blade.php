@@ -35,143 +35,107 @@
         <div class="row">
             <div class="col-lg-12 col-md-9 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading"  align="center"><h2>Registrarse</h2></div>
+                    <div class="panel-heading"  align="center"><h2>Postulación ProExcelencia</h2></div>
 
                     <div class="panel-body">
+                        <div align="center"><h3> Debes registrarte en el sistema para inciar tu proceso de postulacón a ProExcelencia</h3></div>
+             
+                        <form role="form" class="f1 formMultiple" method="post" action="{{ route('register') }}" enctype="multipart/form-data">
+                            {{ csrf_field() }}
 
-                    <form role="form" class="f1 formMultiple" method="post" action="{{ route('register') }}">
-                        {{ csrf_field() }}
 
+                            <div class="f1-steps">
+                                <div class="f1-progress">
+                                    <div class="f1-progress-line" data-now-value="50" data-number-of-steps="2" style="width: 50%;"></div>
+                                </div>
+                                <div class="f1-step active" style="width: 50% !important">
+                                    <div class="f1-step-icon"><i class="fa fa-key"></i></div>
+                                    <p>Cuenta</p>
+                                </div>
 
-                        <div class="f1-steps">
-                            <div class="f1-progress">
-                                <div class="f1-progress-line" data-now-value="11" data-number-of-steps="4" style="width: 11%;"></div>
+                                <div class="f1-step" style="width: 50% !important">
+                                    <div class="f1-step-icon"><i class="fa fa-user"></i></div>
+                                    <p>Personal</p>
+                                </div>
                             </div>
-                            <div class="f1-step active">
-                                <div class="f1-step-icon"><i class="fa fa-key"></i></div>
-                                <p>Cuenta</p>
-                            </div>
-
-                            <div class="f1-step ">
-                                <div class="f1-step-icon"><i class="fa fa-user"></i></div>
-                                <p>Personal</p>
-                            </div>
-
-                            <div class="f1-step">
-                                <div class="f1-step-icon"><i class="fa fa-twitter"></i></div>
-                                <p>Redes Sociales</p>
-                            </div>
-                            <div class="f1-step">
-                                <div class="f1-step-icon"><i class="fa fa-search"></i></div>
-                                <p>Referencias</p>
-                            </div>
-
-                        </div>
+                            {{-------------------------------- Datos de Cuenta --------------------------}}
 
 
                         <fieldset>
-                            <h4>Creacion de Cuenta:</h4>
+                                <h4>Creacion de Cuenta:</h4>
 
-                            <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label class="sr-only" for="name">Nombre</label>
-                                <input type="text" name="name" placeholder="Nombre..." class="f1-first-name form-control" id="f1-first-name" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                                <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
+                                    <label class="sr-only" for="email">Email</label>
+                                    <input type="text" name="email" placeholder="Email..." class="f1-email form-control" id="f1-email" value="{{ old('email') }}" required>
 
-                            <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label class="sr-only" for="email">Email</label>
-                                <input type="text" name="email" placeholder="Email..." class="f1-email form-control" id="f1-email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
-                            </div>
-                            <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label class="sr-only" for="password">Contraseña</label>
-                                <input type="password" name="password" placeholder="Contraseña..." class="f1-password form-control" id="f1-password" required>
+                                    @endif
+                                </div>
+                                <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <label class="sr-only" for="password">Contraseña</label>
+                                    <input type="password" name="password" placeholder="Contraseña..." class="f1-password form-control" id="f1-password" required>
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @endif
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="f1-repeat-password">Repetir Contraseña</label>
-                                <input type="password" placeholder="Repetir Contraseña..."
-                                       class="f1-repeat-password form-control" id="f1-repeat-password" name="password_confirmation" required>
-                            </div>
-                            <div class="f1-buttons">
+                                    @endif
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-repeat-password">Repetir Contraseña</label>
+                                    <input type="password" placeholder="Repetir Contraseña..."
+                                           class="f1-repeat-password form-control" id="f1-repeat-password" name="password_confirmation" required>
+                                </div>
+                                <div class="f1-buttons">
 
-                                <button type="button" class="btn btn-next">Siguiente</button>
-                            </div>
-                        </fieldset>
+                                    <button type="button" class="btn btn-next">Siguiente</button>
+                                </div>
+                            </fieldset>
+                            {{-------------------------------- Datos Personales --------------------------}}
+                            <fieldset>
+                                <h4>Complete sus Datos Personales:</h4>
+                                <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
+                                    <label class="sr-only" for="name">Nombre</label>
+                                    <input type="text" name="name" placeholder="Nombre..." class="f1-first-name form-control" id="f1-first-name" value="{{ old('name') }}" required autofocus>
 
-                        <fieldset>
-                            <h4>Complete sus Datos Personales:</h4>
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
 
-                            <div class="form-group">
-                                <label class="sr-only" for="cedula">Cedula</label>
-                                <input type="text" name="cedula" placeholder="Cedula..." class="form-control" id="cedula">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="f1-about-yourself">Acerca de ti</label>
-                                <textarea name="f1-about-yourself" placeholder="Acerca de ti..."
-                                          class="f1-about-yourself form-control textareaMultiple" id="f1-about-yourself"></textarea>
-                            </div>
-                            <div class="f1-buttons">
-                                <button type="button" class="btn btn-previous">Anterior</button>
-                                <button type="button" class="btn btn-next">Siguiente</button>
-                            </div>
-                        </fieldset>
+                                <div class="form-group {{ $errors->has('lastname') ? ' has-error' : '' }}">
+                                    <label class="sr-only" for="lastname">Apellido</label>
+                                    <input type="text" name="lastname" placeholder="Apellido..." class="form-control" id="f1-first-lastname" value="{{ old('lastname') }}" required autofocus>
 
-                        <fieldset>
-                            <h4>Redes Sociales:</h4>
-                            <div class="form-group">
-                                <label class="sr-only" for="f1-facebook">Facebook</label>
-                                <input type="text" name="f1-facebook" placeholder="Facebook..." class="f1-facebook form-control" id="f1-facebook">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="f1-twitter">Twitter</label>
-                                <input type="text" name="f1-twitter" placeholder="Twitter..." class="f1-twitter form-control" id="f1-twitter">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="f1-google-plus">Google plus</label>
-                                <input type="text" name="f1-google-plus" placeholder="Google plus..." class="f1-google-plus form-control" id="f1-google-plus">
-                            </div>
-                            <div class="f1-buttons">
-                                <button type="button" class="btn btn-previous">Anterior</button>
-                                <button type="button" class="btn btn-next">Siguiente</button>
-                            </div>
+                                    @if ($errors->has('lastname'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('lastname') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
 
-                        </fieldset>
+                                <div class="form-group">
+                                    <label class="sr-only" for="cedula">Cedula</label>
+                                    <input type="text" value="{{ old('cedula') }}" name="cedula" placeholder="Cedula..." class="form-control" id="cedula">
+                                </div>
 
-                        <fieldset>
-                            <h4>Referencias Personales:</h4>
-                            <div class="form-group">
-                                <label class="sr-only" for="f1-recomendacion1">Referencia 1</label>
-                                <input type="text" name="f1-recomendacion1" placeholder="Referencia 1..." class="f1-recomendacion1 form-control" id="f1-recomendacion1">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="f1-recomendacion2">Referencia 2</label>
-                                <input type="text" name="f1-recomendacion2" placeholder="Referencia 2..." class="f1-recomendacion2 form-control" id="f1-recomendacion2">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="f1-recomendacion3">Referencia 3</label>
-                                <input type="text" name="f1-recomendacion3" placeholder="Referencia 3..." class="f1-recomendacion3 form-control" id="f1-recomendacion3">
-                            </div>
-                            <div class="f1-buttons">
-                                <button type="button" class="btn btn-previous">Anterior</button>
-                                <button type="submit" class="btn btn-submit">Registrar</button>
-                            </div>
-                        </fieldset>
+
+                                <div class="form-group">
+                                    <label class="sr-only" for="fnacimiento">Fecha de Nacimiento</label>
+                                    <input type="text" name="fnacimiento" placeholder="Fecha de Nacimiento..." class="form-control" id="fnacimiento">
+                                </div>
+
+                                <div class="f1-buttons">
+                                    <button type="button" class="btn btn-previous">Anterior</button>
+                                    <button type="submit" class="btn btn-next">Registrarse</button>
+                                </div>
+                            </fieldset>
                     </form>
 
                     </div>

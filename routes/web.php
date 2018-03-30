@@ -12,6 +12,9 @@
 */
 
 //Web Site
+
+Route::get('/generarbecarios','GetPublicController@generarbecarios')->name('generarbecarios');
+
 Route::get('/','SitioWebController@index')->name('home');
 
 Route::get('/nosotros', function(){
@@ -37,7 +40,7 @@ Route::get('/contactenos', function(){
 
 Route::get('/noticias','SitioWebController@noticias')->name('noticias');
 
-Route::get('noticias/{id}/show','SitioWebController@showNoticia')->name('showNoti');
+Route::get('noticia/{slug}/','SitioWebController@showNoticia')->name('showNoticia');
 
 
 
@@ -82,11 +85,58 @@ Route::group(["prefix"=>"sisbeca",'middleware'=>'auth'],function ()
             'as' => 'mantenimientoNoticia.destroy'
         ]);
 
+        Route::get('viewCostos', [
+            'uses' => 'SisbecaController@viewCostos',
+            'as' => 'costos.show'
+        ]);
+
+        Route::any('costos/createOrUpdate/{id?}', [
+            'uses' => 'SisbecaController@createOrUpdateCostos',
+            'as' => 'costos.createOrUpdate'
+        ]);
+
+
     });
+
+    Route::group(['middleware'=>'directivo'],function ()
+    {
+        Route::get('nomina/generar/mes/{mes}/anho/{anho}', [
+            'uses' => 'NominaController@generartodo',
+            'as' => 'nomina.generar.todo'
+        ]);
+
+        Route::get('nomina/listar', [
+            'uses' => 'NominaController@listar',
+            'as' => 'nomina.listar'
+        ]);
+       
+        Route::get('nomina/consultar/mes/{mes}/anho/{anho}', [
+            'uses' => 'NominaController@consultar',
+            'as' => 'nomina.consultar'
+        ]);
+
+        Route::get('nomina/pdf/mes/{mes}/anho/{anho}', [
+            'uses' => 'NominaController@pdf',
+            'as' => 'nomina.pdf'
+        ]);
+
+        Route::get('nomina/cambiar-estatus', [
+            'uses' => 'NominaController@cambiar',
+            'as' => 'nomina.cambiar'
+        ]);
+
+        Route::get('becarios/listar', [
+            'uses' => 'BecarioController@listar',
+            'as' => 'becarios.listar'
+        ]);
+     });
+
 
 
 });
 Auth::routes();
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout' ); //esta ruta sirve para desloguear al usuario
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
+
+//esta ruta sirve para desloguear al usuario
 
 //Route::get('/home', 'HomeController@index')->name('home');

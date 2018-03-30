@@ -105,7 +105,7 @@
                                                             {{substr(strip_tags($noticias->get($i)['contenido']), 0, 250).'...'}}
                                                          </p>
                                                          <div class="plan-button">
-                                                         <a href="{{route('showNoti',$noticias->get($i)['id'])}}" title="Mas Información" class="btn btn-common"><i class="fa fa-plus"></i> <span class="mas-informacion">Mas Información</span></a>
+                                                         <a href="{{route('showNoticia',$noticias->get($i)['slug'])}}" title="Mas Información" class="btn btn-common"><i class="fa fa-plus"></i> <span class="mas-informacion">Mas Información</span></a>
                                                          </div>
                                                          <br/>
 

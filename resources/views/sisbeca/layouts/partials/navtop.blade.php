@@ -23,10 +23,10 @@
             </ul>
 
 
-                      <ul class="navbar-nav navbar-right">
+                  <!--    <ul class="navbar-nav navbar-right">
                              <li><a href="{{ route('login') }}">Acceder<span>&nbsp;</span> </a></li>
                              <li><a href="{{ route('register') }}"><span>&nbsp;</span>Registrarse</a></li>
-                      </ul>
+                      </ul> -->
         </div>
                 @else
                 <div class="navbar-collapse">

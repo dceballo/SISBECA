@@ -108,6 +108,7 @@ textarea.form-control {
 .f1-progress-line { position: absolute; top: 0; left: 0; height: 1px; background: #3d91d6; }
 
 .f1-step { position: relative; float: left; width: 25%; padding: 0 5px; }
+.f1-step-m{ position: relative; float: left; width: 40%; padding: 0 5px; }
 
 .f1-step-icon {
     display: inline-block; width: 40px; height: 40px; margin-top: 4px; background: #ddd;
@@ -132,6 +133,16 @@ textarea.form-control {
 .f1 .input-error { border-color: red !important; }
 
 
+.f1-step-m.activated .f1-step-icon {
+    background: #fff; border: 1px solid #3d91d6; color: #3d91d6; line-height: 38px;
+}
+.f1-step-m.active .f1-step-icon {
+    width: 48px; height: 48px; margin-top: 0; background: #3d91d6; font-size: 22px; line-height: 48px;
+}
+
+.f1-step-m p { color: #ccc; }
+.f1-step-m.activated p { color: #3d91d6; }
+.f1-step-m.active p { color: #3d91d6; }
 
 /***** Media queries *****/
 

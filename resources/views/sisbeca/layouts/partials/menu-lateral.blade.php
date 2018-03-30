@@ -63,6 +63,13 @@
                 {{--Inicio de Vistas del Coordinador Educativo es decir el Editor--}}
                 @if(Auth::user()->rol==='editor')
                 <li class="nav-label">Inicio</li>
+                    <li> <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-usd"></i><span class="hide-menu">Costos</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{route('costos.show')}}">Mantenimiento</a></li>
+
+                        </ul>
+                    </li>
+
                 <li> <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-list-alt"></i><span class="hide-menu">Articulos</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="{{route('mantenimientoNoticia.index')}}">Mantenimiento</a></li>

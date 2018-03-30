@@ -17,7 +17,7 @@ class CreateDocumentosTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('url');
-            $table->boolean('verificado');
+            $table->boolean('verificado') -> default(false);
             $table->unsignedInteger('user_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

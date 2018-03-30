@@ -80,13 +80,13 @@
                                    <button type="submit" class="btn btn-primary btn-flat m-b-10 m-t-10">Acceder</button>
 
                                        <!-- Boton de Postulante a becario -->
-                                   <a href="{{ route('register') }}"> <button type="button" class="btn btn-warning m-b-10 m-t-10" > Postularse a ProExcelencia</button> </a>
+                                   <a href="{{ route('register') }}"> <button type="button" class="btn btn-background-gradient-style m-b-10 m-t-10" > Postularse a ProExcelencia</button> </a>
 
                                        <!-- Boton de Postulante a Mentor -->
-                                    <button type="button" class="btn btn-warning m-b-10 m-t-10">Postularse como Mentor</button>
+                                     <a href="{{ route('registerMentor') }}"><button type="button" class="btn btn-background-gradient-style m-b-10 m-t-10">Postularse como Mentor</button></a>
 
                                        <p>¿No estas Registrado? <a href="{{ route('register') }}"> Registrate Aqui!</a></p>
-                                   </div>
+
                                </form>
                            </div>
                        </div>

@@ -90,6 +90,10 @@ ul li {
   text-align: justify !important;
 }
 
+.break-all{
+  word-break: break-all !important;
+}
+
 .contenidoDeList ul>li {
 
   margin-left: 30px !important;
@@ -100,7 +104,6 @@ ul li {
 .contenidoDeList{
 
   margin-top: 5px;
-  word-break: break-all;
 }
 p.contenido{
   word-break: break-all;

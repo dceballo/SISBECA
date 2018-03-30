@@ -1,36 +1,9 @@
 
-{{Auth::check()}}
-{{-- aqui en este extends esta  la funcion Auth::check() que autentifica si el usuario ya inicio sesion y lo redirige a la pagina principal del sistema --}}
-        <!DOCTYPE html>
-<html lang="en">
+@extends('sisbeca.layouts.main')
+@section('title','Mantenimiento Articulos')
+@section('subtitle','Datos Personales')
+@section('content')
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('info_sitio/img/favicon.png')}}" >
-    <title>Avaa - Registrarse</title>
-
-    @include('sisbeca.layouts.partials.filescss')
-</head>
-
-<body class="fix-header fix-sidebar">
-<!-- Preloader - style you can find in spinners.css -->
-<div class="preloader">
-    <svg class="circular" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-</div>
-<!-- Main wrapper  -->
-<div id="main-wrapper">
-    <div class="header">
-        @include('sisbeca.layouts.partials.navtop')
-    </div>
 
     <div class="container">
         <div class="row">
@@ -46,16 +19,33 @@
 
                             <div class="f1-steps">
                                 <div class="f1-progress">
-                                    <div class="f1-progress-line" data-now-value="50" data-number-of-steps="2" style="width: 50%;"></div>
+                                    <div class="f1-progress-line" data-now-value="50" data-number-of-steps="5" style="width: 10%;"></div>
                                 </div>
-                                <div class="f1-step active" style="width: 50% !important">
+
+                                <!-- .............Datos Personales.............. -->
+                                <div class="f1-step active">
                                     <div class="f1-step-icon"><i class="fa fa-key"></i></div>
                                     <p>Cuenta</p>
                                 </div>
-
-                                <div class="f1-step" style="width: 50% !important">
+                                <!-- .............Estudios Secundarios.............. -->
+                                <div class="f1-step">
+                                    <div class="f1-step-icon"><i class="fa fa-user"></i></div>
+                                    <p>Estudios Secundarios</p>
+                                </div>
+                                <!-- ............. Estudios Universitarios ............. -->
+                                 <div class="f1-step">
+                                    <div class="f1-step-icon"><i class="fa fa-user"></i></div>
+                                    <p>Estudios Universitarios</p>
+                                </div>
+                                <!-- ............... Información Adicional ............. -->
+                                 <div class="f1-step">
                                     <div class="f1-step-icon"><i class="fa fa-user"></i></div>
                                     <p>Personal</p>
+                                </div>
+                                <!-- ..................Documentos................... -->
+                                 <div class="f1-step">
+                                    <div class="f1-step-icon"><i class="fa fa-user"></i></div>
+                                    <p> Carga de Documentos</p>
                                 </div>
                             </div>
                             {{-------------------------------- Datos de Cuenta --------------------------}}

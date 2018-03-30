@@ -45,4 +45,11 @@ class GetPublicController extends Controller
         return $objeto;
 
     }
+
+      public function viewregisterMentor(){
+
+            return view('auth.registerMentor');
+    }
 }
+
+

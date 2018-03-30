@@ -5,9 +5,10 @@ namespace avaa\Http\Controllers\Auth;
 use avaa\User;
 use avaa\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Foundation\Auth\RegisterMentors;
 
-class RegisterController extends Controller
+
+class RegisterMentorController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    use RegisterMentors;
 
     /**
      * Where to redirect users after registration.
@@ -63,11 +64,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+     
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'cedula' => $data['cedula'], //campo agregado para la tabla user
+            'rol'=> 'postulante_mentor',
         ]);
 
     }

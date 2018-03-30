@@ -86,11 +86,15 @@
 
                     </div>
 
-                    <div class="form-group" align="center">
-                        <button onclick="Regresar()" class="btn btn-default" type="button" >Cancelar</button>&nbsp;&nbsp;
+                    <div class="col-lg-12 " >
+                        <div class="form-group text-right" align="center">
+                            <button onclick="Regresar()" class="btn btn-default" type="button" >Cancelar</button>&nbsp;&nbsp;
 
-                        <input class="btn btn-primary" type="submit" value="Guardar">
+                            <input class="btn btn-primary" type="submit" value="Guardar">
+                        </div>
+
                     </div>
+                    
 
                 </form>
 
